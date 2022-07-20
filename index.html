@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>MOKDE</title>
+      <title>JOBSEKER</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -33,18 +33,36 @@
 
       <div class="container">
 
-         <div id="masterC" style="display: none">
-            <div class="row">
-               <div class="table-responsive">
-                  <table id="maintable" class="table table-striped">
-                     <thead>
+         <!-- Login UI -->
+         <div id="loginUI" class="col-md-6 login card">
+            <div class="row card-body">
+               <form action="" method="post" class="text-center form form-group">
+                  Email <br>
+                  <input type="text" name="email" id="" placeholder="Email..." class="form-control">
+                  Password 
+                  <input type="password" name="password" id="" placeholder="Password..." class="form-control">
+                  <br>
+                  <button class="btn btn-primary" type="submit" value="Login">Login</button>
+                  <br><br>
+                  <p>New user?  <a id="btnRegister">Register</a></p>
+               </form>
+            </div>
+         </div>
 
-                     </thead>
-                     <tbody>
-
-                     </tbody>
-                  </table>
-               </div>
+         <!-- Register UI -->
+         <!-- Nanti buat button boleh pergi UI Register and Login-->
+         <div id="loginUI" class="col-md-6 login card" style="display: none;">
+            <div class="row card-body">
+               <form action="" method="post" class="text-center form form-group">
+                  Email <br>
+                  <input type="text" name="email" id="" placeholder="Email..." class="form-control">
+                  Password 
+                  <input type="password" name="password" id="" placeholder="Password..." class="form-control">
+                  <br>
+                  <button class="btn btn-primary" type="submit" value="Register">Register</button>
+                  <br><br>
+                  <p>Existed user?  <a id="btnLogin">Login</a></p>
+               </form>
             </div>
          </div>
 
