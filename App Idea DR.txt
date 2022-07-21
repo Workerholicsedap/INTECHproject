@@ -1,0 +1,30 @@
+App Idea
+
+1. job application
+2. broker sebagai pengantara shopee & lazada
+3. delivery service standalone
+4. burger ordering system
+
+(4)
+-nama, gambar, desc, senarai burger yg ada
+-boleh order drpd situ
+-qr code print/website/app owner
+
+update, kedai tutup ke tak, up to date
+plug and play, letak item, boleh terus buat bisnes.
+
+develop -> owner, customer, admin
+policy? rm10 sebulan ke, apa ke
+byr online ke facetoface. (kalau menipu mcm mana nak cover)
+
+5. app barang kitar semula
+-support green planning
+-ada rider
+
+
+
+
+
+
+
+

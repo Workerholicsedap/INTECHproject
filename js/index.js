@@ -26,7 +26,7 @@ $(function()
         $("#divFrmAddKenalan").hide();
         $("#divFrmViewKenalan").hide();
         $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").show();
+        $("#divaddbutton").hide();  //-- takyah display add button
         $("#divAbout").hide();
         $("#divRestore").hide();
         $("#divDisplay").hide();
