@@ -32,10 +32,16 @@
          </nav>
       </div>
 
-      <div class="container col-md-5" 
+      <!--LOGIn INTERFACE-->
+      <div class="container col-md-5"  id="loginUI">
          <div class="card" style="background-color:white;margin-left: 20px;margin-right: 20px;margin-bottom: 20px;">
             <div class="card-body">
-               <form>
+               <form style="
+               padding-left: 30px;
+               padding-right: 30px;
+               border-bottom-width: 30px;
+               padding-bottom: 20px;
+               padding-top: 20px;">
 
                   <div>
                      <h1 style="font-family: 'Yellowtail';font-size: 22px;">JOBSEKER</h1>
@@ -49,7 +55,12 @@
                  <fieldset class="form-group">
                   <label>Password</label><!-- comment -->
                   <input type="text" class="form-control" name="login">                     
-              </fieldset>
+                  </fieldset>
+
+                  <br>
+                  <button class="btn btn-primary" type="submit" value="Register">Register</button>
+                  <br><br>
+                  <p>Existed user?  <a id="btnLogin">Login</a></p>
 
                </form>
             </div>
