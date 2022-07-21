@@ -6,6 +6,8 @@ $(function()
 
     //index.html link
     var link3 = crossroads.addRoute('', function() {
+        
+        /*
         dataLength = localStorage.datacount;
         htmlText = "";
         if (dataLength > 0) {
@@ -21,6 +23,7 @@ $(function()
         }
 
         $('#maintable tbody').html(htmlText);
+        */
 
         //show main menu with table and Add Button
         $("#divmokdebtn").show();
@@ -35,6 +38,45 @@ $(function()
         $("#divEdit").hide();
 
     });    
+
+    //Go to Register
+    var link4 = crossroads.addRoute('btnRegister', function() {
+        $("#divmokdebtn").show();
+        $("#masterC").hide();
+        $("#divFrmAddKenalan").hide();
+        $("#divFrmViewKenalan").hide();
+        $("#divFrmEditKenalan").hide();
+        $("#divaddbutton").hide();
+        $("#divAbout").hide();
+        $("#divRestore").hide();
+        $("#divDisplay").hide();
+        $("#divEdit").hide();
+
+        $("#loginUI").hide();
+        $("#registerUI").show();
+        
+
+    });
+
+    //Go to Register
+    var link4 = crossroads.addRoute('btnLogin', function() {
+        $("#divmokdebtn").show();
+        $("#masterC").hide();
+        $("#divFrmAddKenalan").hide();
+        $("#divFrmViewKenalan").hide();
+        $("#divFrmEditKenalan").hide();
+        $("#divaddbutton").hide();
+        $("#divAbout").hide();
+        $("#divRestore").hide();
+        $("#divDisplay").hide();
+        $("#divEdit").hide();
+
+        $("#loginUI").show();
+        $("#registerUI").hide();
+        
+
+    });
+
 
     //btn add kenalan
     var link4 = crossroads.addRoute('btnAddKenalan', function() {

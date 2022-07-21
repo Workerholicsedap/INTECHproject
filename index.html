@@ -32,6 +32,43 @@
          </nav>
       </div>
 
+      <!--Register INTERFACE-->
+      <div class="container col-md-5"  id="registerUI" style="display: none;">
+         <div class="card" style="border-radius: 20px; background-color:white;margin-left: 20px;margin-right: 20px;margin-bottom: 20px;">
+            <div class="card-body">
+               <form action="" method="post" style=" 
+               padding-left: 30px;
+               padding-right: 30px;
+               border-bottom-width: 30px;
+               padding-bottom: 20px;
+               padding-top: 20px;">
+
+                  <div>
+                     <h1 style="font-family: 'Yellowtail';font-size: 22px;">JOBSEKER</h1>
+                  </div>
+
+                  <fieldset class="form-group">
+                     <label>Register ID</label><!-- comment -->
+                     <input type="text" class="form-control" name="login">                     
+                 </fieldset>
+
+                 <fieldset class="form-group">
+                  <label>Password</label><!-- comment -->
+                  <input type="password" class="form-control" name="password">                     
+                  </fieldset>
+
+                  <br>
+                  <div class="text-center">
+                     <button class="btn btn-primary" type="submit" value="Register">Register</button>
+                     <br><br>
+                     <p>Existed user?  <a href="#btnLogin">Login</a></p>
+                  </div>
+
+               </form>
+            </div>
+         </div>
+      </div>
+
       <!--LOGIn INTERFACE-->
       <div class="container col-md-5"  id="loginUI">
          <div class="card" style="border-radius: 20px; background-color:white;margin-left: 20px;margin-right: 20px;margin-bottom: 20px;">
@@ -54,14 +91,14 @@
 
                  <fieldset class="form-group">
                   <label>Password</label><!-- comment -->
-                  <input type="text" class="form-control" name="login">                     
+                  <input type="password" class="form-control" name="password">                     
                   </fieldset>
 
                   <br>
                   <div class="text-center">
-                     <button class="btn btn-primary" type="submit" value="Register">Register</button>
+                     <button class="btn btn-primary" type="submit">Login</button>
                      <br><br>
-                     <p>Existed user?  <a id="btnLogin">Login</a></p>
+                     <p>New user?  <a href="#btnRegister">Register</a></p>
                   </div>
 
                </form>
