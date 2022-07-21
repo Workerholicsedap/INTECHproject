@@ -32,40 +32,48 @@
          </nav>
       </div>
 
+      <div class="container col-md-5" 
+         <div class="card" style="background-color:white;margin-left: 20px;margin-right: 20px;margin-bottom: 20px;">
+            <div class="card-body">
+               <form>
+
+                  <div>
+                     <h1 style="font-family: 'Yellowtail';font-size: 22px;">JOBSEKER</h1>
+                  </div>
+
+                  <fieldset class="form-group">
+                     <label>Login ID</label><!-- comment -->
+                     <input type="text" class="form-control" name="login">                     
+                 </fieldset>
+
+                 <fieldset class="form-group">
+                  <label>Password</label><!-- comment -->
+                  <input type="text" class="form-control" name="login">                     
+              </fieldset>
+
+               </form>
+            </div>
+         </div>
+      </div>
+
       <div class="container">
 
-         <!-- Login UI -->
-         <div id="loginUI" class="col-md-6 login card">
-            <div class="row card-body">
-               <form action="" method="post" class="text-center form form-group">
-                  Email <br>
-                  <input type="text" name="email" id="" placeholder="Email..." class="form-control">
-                  Password 
-                  <input type="password" name="password" id="" placeholder="Password..." class="form-control">
-                  <br>
-                  <button class="btn btn-primary" type="submit" value="Login">Login</button>
-                  <br><br>
-                  <p>New user?  <a id="btnRegister">Register</a></p>
-               </form>
+         <div id="masterC" style="display: none">
+            <div class="row">
+               <div class="table-responsive">
+                  <table id="maintable" class="table table-striped">
+                     <thead>
+
+                     </thead>
+                     <tbody>
+
+                     </tbody>
+                  </table>
+               </div>
             </div>
          </div>
 
-         <!-- Register UI -->
-         <!-- Nanti buat button boleh pergi UI Register and Login-->
-         <div id="loginUI" class="col-md-6 login card" style="display: none;">
-            <div class="row card-body">
-               <form action="" method="post" class="text-center form form-group">
-                  Email <br>
-                  <input type="text" name="email" id="" placeholder="Email..." class="form-control">
-                  Password 
-                  <input type="password" name="password" id="" placeholder="Password..." class="form-control">
-                  <br>
-                  <button class="btn btn-primary" type="submit" value="Register">Register</button>
-                  <br><br>
-                  <p>Existed user?  <a id="btnLogin">Login</a></p>
-               </form>
-            </div>
-         </div>
+         
 
          <!--Frm add kenalan-->
          <div id="divFrmAddKenalan" style="display: none">
