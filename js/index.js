@@ -1,8 +1,10 @@
 $(function()
 {
+    //if no storage
     if (!localStorage.datacount || localStorage.datacount == null)
         localStorage.datacount = 0;
 
+    //index.html link
     var link3 = crossroads.addRoute('', function() {
         dataLength = localStorage.datacount;
         htmlText = "";
