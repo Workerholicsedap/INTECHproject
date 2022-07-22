@@ -1,6 +1,6 @@
 
 Link : 
-https://script.google.com/macros/s/AKfycbxsPdBYADHm4MAMGb2ci8WYLn3UKiHyNmTSUZy8DjiXA76PN8z2BRqX1n-TPujGI43CrQ/exec
+https://script.google.com/macros/s/AKfycbwr4tH89xTsJgX1iFLZDryPC03EQu3zFj8BZQRGyTQQRWye3FfdOZY3S8_ktjVVob2YzQ/exec
 
 Spreadsheet Link:
 https://docs.google.com/spreadsheets/d/1oXo17KYNIdOhQ_9BfzV7wNWh7OFRmlcC31PfaOsu8JE/edit?usp=sharing
@@ -19,3 +19,7 @@ POST Data:
 
 	3. Register & Insert Data
 	<link>?id=afwan&pass=123&data=ayamikanudang
+
+Return data :
+	result = <desc result?
+	status = 1 or 0
