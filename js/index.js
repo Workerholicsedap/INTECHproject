@@ -27,52 +27,33 @@ $(function()
 
         //show main menu with table and Add Button
         $("#divmokdebtn").show();
-        $("#masterC").show();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").hide();  //-- takyah display add button
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
+        $("#masterC").hide();
+        
+        
+        $("#loginUI").show();
+        $("#registerUI").hide();
+        $("#homePageUI").hide();
 
     });    
 
     //Go to Register
     var link4 = crossroads.addRoute('btnRegister', function() {
-        $("#divmokdebtn").show();
-        $("#masterC").hide();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").hide();
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
+        
 
         $("#loginUI").hide();
         $("#registerUI").show();
+        $("#homePageUI").hide();
         
 
     });
 
     //Go to Register
     var link4 = crossroads.addRoute('btnLogin', function() {
-        $("#divmokdebtn").show();
-        $("#masterC").hide();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").hide();
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
+        
 
         $("#loginUI").show();
         $("#registerUI").hide();
+        $("#homePageUI").hide();
         
 
     });
@@ -138,6 +119,33 @@ $(function()
         $("#divEdit").hide();
 
     });
+
+    //FrmLogin
+    $("#frmLogin").submit(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show(); //navbar
+        $("#loginUI").hide();
+        $("#registerUI").hide();
+        $("#homePageUI").show();
+        
+    });
+
+    //FrmRegister
+    $("#frmRegister").submit(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show(); //navbar
+        $("#loginUI").hide();
+        $("#registerUI").hide();
+        $("#homePageUI").show();
+        
+    });
+
 
     //Add kenalan
     $("#frmAddKenalan").submit(function(e) {
