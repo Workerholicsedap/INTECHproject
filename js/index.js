@@ -1,5 +1,8 @@
 $(function()
 {
+    //URL USED
+    var urlUsed = "https://script.google.com/macros/s/AKfycbxsPdBYADHm4MAMGb2ci8WYLn3UKiHyNmTSUZy8DjiXA76PN8z2BRqX1n-TPujGI43CrQ/exec";
+
     //if no storage
     if (!localStorage.datacount || localStorage.datacount == null)
         localStorage.datacount = 0;
@@ -146,6 +149,69 @@ $(function()
         
     });
 
+    //Login
+    var link10 = crossroads.addRoute('loginSubmit', function () {
+
+        array = [];
+        myData = {};
+
+        //dapatkan data setiap form, push setiap data
+        for (let i = 1; i <= localStorage.datacount; i++) {
+            //const element = array[i];
+            var temp = localStorage.getItem("data"+i);
+            //alert(temp);
+            
+            array.push(temp);
+            //alert("array : " + JSON.stringify(array) );
+
+        }
+
+        var loginID = $("#loginID").val(); //get ID
+        var loginPass = $("#loginPass").val(); //get pass
+
+        var datalist = "id=" + loginID + "&data=" + JSON.stringify(array);
+        alert("datalist : " + datalist);
+
+        $.ajax( {
+            type: "POST",
+            url: "https://kerbau.odaje.biz/mokdebackup.php",
+            data: datalist,
+            cache: false,
+            success: function(returndata) {
+                alert("success to linkk ");
+                var data = JSON.parse(returndata);
+                if (data.status === 1 ) {
+                    alert("Data for " + userEmail + " backup successfully");
+                    window.location = 'index.html';
+                } else {
+                    alert("Data failed to backup, either internet error or data already backup for email " + userEmail);
+                }
+
+                
+
+            },
+            error: function() {
+                alert("Error connect to db :(");
+            }
+
+        });
+
+        
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show();
+        $("#masterC").show();
+        $("#divFrmAddKenalan").hide();
+        $("#divFrmViewKenalan").hide();
+        $("#divFrmEditKenalan").hide();
+        $("#divaddbutton").show();
+        $("#divAbout").hide();
+        $("#divRestore").hide();
+        $("#divDisplay").hide();
+        $("#divEdit").hide();
+
+        window.location = 'index.html';
+
+    });
 
     //Add kenalan
     $("#frmAddKenalan").submit(function(e) {
