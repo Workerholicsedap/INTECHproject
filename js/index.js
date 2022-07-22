@@ -1,7 +1,7 @@
 $(function()
 {
     //URL USED
-    var urlUsed = "https://script.google.com/macros/s/AKfycbxsPdBYADHm4MAMGb2ci8WYLn3UKiHyNmTSUZy8DjiXA76PN8z2BRqX1n-TPujGI43CrQ/exec";
+    var urlUsed = "https://script.google.com/macros/s/AKfycbwr4tH89xTsJgX1iFLZDryPC03EQu3zFj8BZQRGyTQQRWye3FfdOZY3S8_ktjVVob2YzQ/exec";
 
     //if no storage
     if (!localStorage.datacount || localStorage.datacount == null)
@@ -60,6 +60,77 @@ $(function()
         
 
     });
+
+
+    //BARUUUU
+    //FrmLogin
+    $("#frmLogin").submit(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var array = [];
+
+        var loginID = $("#loginID").val(); //get ID
+        var loginPass = $("#loginPass").val(); //get pass
+
+        var datalist = "id=" + loginID + "&pass=" + loginPass;
+        alert("datalist : " + datalist);
+
+        $.ajax( {
+            type: "POST",
+            url: urlUsed,
+            data: datalist,
+            cache: false,
+            success: function(returndata) {
+                alert("success to linkk ");
+                var data = JSON.parse(returndata);
+                alert(JSON.stringify(returndata));
+
+
+                if (data.status === 1 ) {
+                    alert("Data for " + userEmail + " backup successfully");
+                    window.location = 'index.html';
+                } else if (data.status === 0 ){
+                    alert("Data failed to backup, either internet error or data already backup for email " + userEmail);
+                }
+
+                
+
+            },
+            error: function() {
+                alert("Error connect to db :(");
+            }
+
+        });
+
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show(); //navbar
+        $("#loginUI").hide();
+        $("#registerUI").hide();
+        $("#homePageUI").show();
+        
+    });
+
+    //FrmRegister
+    $("#frmRegister").submit(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        //data -> 
+
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show(); //navbar
+        $("#loginUI").hide();
+        $("#registerUI").hide();
+        $("#homePageUI").show();
+        
+    });
+
+
+
+
+
+
 
 
     //btn add kenalan
@@ -123,86 +194,7 @@ $(function()
 
     });
 
-    //FrmLogin
-    $("#frmLogin").submit(function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        //show main menu with table and Add Button
-        $("#divmokdebtn").show(); //navbar
-        $("#loginUI").hide();
-        $("#registerUI").hide();
-        $("#homePageUI").show();
-        
-    });
-
-    //FrmRegister
-    $("#frmRegister").submit(function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        //show main menu with table and Add Button
-        $("#divmokdebtn").show(); //navbar
-        $("#loginUI").hide();
-        $("#registerUI").hide();
-        $("#homePageUI").show();
-        
-    });
-
-    //Login
-    var link10 = crossroads.addRoute('loginSubmit', function () {
-
-        var array = [];
-
-        var loginID = $("#loginID").val(); //get ID
-        var loginPass = $("#loginPass").val(); //get pass
-
-        var datalist = "id=" + loginID + "&pass=" + loginPass;
-        alert("datalist : " + datalist);
-
-        $.ajax( {
-            type: "POST",
-            url: "https://script.google.com/macros/s/AKfycbxsPdBYADHm4MAMGb2ci8WYLn3UKiHyNmTSUZy8DjiXA76PN8z2BRqX1n-TPujGI43CrQ/exec",
-            data: datalist,
-            cache: false,
-            success: function(returndata) {
-                alert("success to linkk ");
-                var data = JSON.parse(returndata);
-                alert("Data get " + data );
-
-
-                if (data.status === 1 ) {
-                    alert("Data for " + userEmail + " backup successfully");
-                    window.location = 'index.html';
-                } else if (data.status === 0 ){
-                    alert("Data failed to backup, either internet error or data already backup for email " + userEmail);
-                }
-
-                
-
-            },
-            error: function() {
-                alert("Error connect to db :(");
-            }
-
-        });
-
-        
-        //show main menu with table and Add Button
-        $("#divmokdebtn").show();
-        $("#masterC").show();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").show();
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
-
-        window.location = 'index.html';
-
-    });
+   
 
     //Add kenalan
     $("#frmAddKenalan").submit(function(e) {
