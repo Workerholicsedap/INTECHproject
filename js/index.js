@@ -1,5 +1,8 @@
 $(function()
 {
+    //URL USED
+    var urlUsed = "https://script.google.com/macros/s/AKfycbwr4tH89xTsJgX1iFLZDryPC03EQu3zFj8BZQRGyTQQRWye3FfdOZY3S8_ktjVVob2YzQ/exec";
+
     //if no storage
     if (!localStorage.datacount || localStorage.datacount == null)
         localStorage.datacount = 0;
@@ -27,55 +30,107 @@ $(function()
 
         //show main menu with table and Add Button
         $("#divmokdebtn").show();
-        $("#masterC").show();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").hide();  //-- takyah display add button
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
+        $("#masterC").hide();
+        
+        
+        $("#loginUI").show();
+        $("#registerUI").hide();
+        $("#homePageUI").hide();
 
     });    
 
     //Go to Register
     var link4 = crossroads.addRoute('btnRegister', function() {
-        $("#divmokdebtn").show();
-        $("#masterC").hide();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").hide();
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
+        
 
         $("#loginUI").hide();
         $("#registerUI").show();
+        $("#homePageUI").hide();
         
 
     });
 
     //Go to Register
     var link4 = crossroads.addRoute('btnLogin', function() {
-        $("#divmokdebtn").show();
-        $("#masterC").hide();
-        $("#divFrmAddKenalan").hide();
-        $("#divFrmViewKenalan").hide();
-        $("#divFrmEditKenalan").hide();
-        $("#divaddbutton").hide();
-        $("#divAbout").hide();
-        $("#divRestore").hide();
-        $("#divDisplay").hide();
-        $("#divEdit").hide();
+        
 
         $("#loginUI").show();
         $("#registerUI").hide();
+        $("#homePageUI").hide();
         
 
     });
+
+
+    //BARUUUU
+    //FrmLogin
+    $("#frmLogin").submit(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var array = [];
+
+        var loginID = $("#loginID").val(); //get ID
+        var loginPass = $("#loginPass").val(); //get pass
+
+        var datalist = "id=" + loginID + "&pass=" + loginPass;
+        alert("datalist : " + datalist);
+
+        $.ajax( {
+            type: "POST",
+            url: urlUsed,
+            data: datalist,
+            cache: false,
+            success: function(returndata) {
+                alert("success to linkk ");
+                var data = JSON.parse(returndata);
+                alert(JSON.stringify(returndata));
+
+
+                if (data.status === 1 ) {
+                    alert("Data for " + userEmail + " backup successfully");
+                    window.location = 'index.html';
+                } else if (data.status === 0 ){
+                    alert("Data failed to backup, either internet error or data already backup for email " + userEmail);
+                }
+
+                
+
+            },
+            error: function() {
+                alert("Error connect to db :(");
+            }
+
+        });
+
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show(); //navbar
+        $("#loginUI").hide();
+        $("#registerUI").hide();
+        $("#homePageUI").show();
+        
+    });
+
+    //FrmRegister
+    $("#frmRegister").submit(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        //data -> 
+
+        //show main menu with table and Add Button
+        $("#divmokdebtn").show(); //navbar
+        $("#loginUI").hide();
+        $("#registerUI").hide();
+        $("#homePageUI").show();
+        
+    });
+
+
+
+
+
+
 
 
     //btn add kenalan
@@ -138,6 +193,8 @@ $(function()
         $("#divEdit").hide();
 
     });
+
+   
 
     //Add kenalan
     $("#frmAddKenalan").submit(function(e) {
