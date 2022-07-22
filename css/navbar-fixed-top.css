@@ -3,8 +3,13 @@ body {
   background-color: #e8e5d8c0;
 }
 
+<<<<<<< Updated upstream
 .red{
   background-color: #B21236;
+=======
+.black{
+  background-color:#000000;
+>>>>>>> Stashed changes
 }
 
 b {
