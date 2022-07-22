@@ -152,38 +152,29 @@ $(function()
     //Login
     var link10 = crossroads.addRoute('loginSubmit', function () {
 
-        array = [];
-        myData = {};
-
-        //dapatkan data setiap form, push setiap data
-        for (let i = 1; i <= localStorage.datacount; i++) {
-            //const element = array[i];
-            var temp = localStorage.getItem("data"+i);
-            //alert(temp);
-            
-            array.push(temp);
-            //alert("array : " + JSON.stringify(array) );
-
-        }
+        var array = [];
 
         var loginID = $("#loginID").val(); //get ID
         var loginPass = $("#loginPass").val(); //get pass
 
-        var datalist = "id=" + loginID + "&data=" + JSON.stringify(array);
+        var datalist = "id=" + loginID + "&pass=" + loginPass;
         alert("datalist : " + datalist);
 
         $.ajax( {
             type: "POST",
-            url: "https://kerbau.odaje.biz/mokdebackup.php",
+            url: "https://script.google.com/macros/s/AKfycbxsPdBYADHm4MAMGb2ci8WYLn3UKiHyNmTSUZy8DjiXA76PN8z2BRqX1n-TPujGI43CrQ/exec",
             data: datalist,
             cache: false,
             success: function(returndata) {
                 alert("success to linkk ");
                 var data = JSON.parse(returndata);
+                alert("Data get " + data );
+
+
                 if (data.status === 1 ) {
                     alert("Data for " + userEmail + " backup successfully");
                     window.location = 'index.html';
-                } else {
+                } else if (data.status === 0 ){
                     alert("Data failed to backup, either internet error or data already backup for email " + userEmail);
                 }
 
