@@ -12,13 +12,13 @@ GET Data:
 POST Data:
 
 	1. Login
-	<link>?id=afwan&pass=123
+	<link>?id=afwan&pass=123&req=login
 
 	2. Insert Data
 	<link>?id=afwan&data=ayamikanudang 
 
 	3. Register & Insert Data
-	<link>?id=afwan&pass=123&data=ayamikanudang
+	<link>?id=afwan&pass=123&data=ayamikanudang&req=register
 
 Return data :
 	result = <desc result?
