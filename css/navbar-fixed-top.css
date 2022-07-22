@@ -189,4 +189,27 @@ input, text {
   color:black !important;
 }
 
+ul#hori0 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+}
+
+li#hori0 {
+  float:left;
+  text-align: center;
+  
+}
+
+li#hori0 a {
+  display: block;
+  color: rgb(89, 89, 89);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 
