@@ -1,6 +1,6 @@
 
 Link : 
-https://script.google.com/macros/s/AKfycbyb2_1YtYCNzafFjLwRat144ldTLRxJeDVZNQc_6n8ee0GXbIb_95qyI-6RjQ7uEmrZSA/exec
+https://script.google.com/macros/s/AKfycbxsPdBYADHm4MAMGb2ci8WYLn3UKiHyNmTSUZy8DjiXA76PN8z2BRqX1n-TPujGI43CrQ/exec
 
 Spreadsheet Link:
 https://docs.google.com/spreadsheets/d/1oXo17KYNIdOhQ_9BfzV7wNWh7OFRmlcC31PfaOsu8JE/edit?usp=sharing
@@ -14,5 +14,8 @@ POST Data:
 	1. Login
 	<link>?id=afwan&pass=123
 
-	2.
+	2. Insert Data
 	<link>?id=afwan&data=ayamikanudang 
+
+	3. Register & Insert Data
+	<link>?id=afwan&pass=123&data=ayamikanudang
