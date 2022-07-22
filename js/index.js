@@ -1,7 +1,7 @@
 $(function()
 {
     //URL USED
-    var urlUsed = "https://script.google.com/macros/s/AKfycbwr4tH89xTsJgX1iFLZDryPC03EQu3zFj8BZQRGyTQQRWye3FfdOZY3S8_ktjVVob2YzQ/exec";
+    var urlUsed = "https://script.google.com/macros/s/AKfycbxMNduPV1wkrugCf2F8WvyompjjSfMU_cr01AXwqyegNgqzccKx-VyGBU2yW5vD8BWH5g/exec";
 
     //if no storage
     if (!localStorage.datacount || localStorage.datacount == null)
@@ -73,7 +73,7 @@ $(function()
         var loginID = $("#loginID").val(); //get ID
         var loginPass = $("#loginPass").val(); //get pass
 
-        var datalist = "id=" + loginID + "&pass=" + loginPass;
+        var datalist = "req=login&id=" + loginID + "&pass=" + loginPass;
         alert("datalist : " + datalist);
 
         $.ajax( {
@@ -82,14 +82,17 @@ $(function()
             data: datalist,
             cache: false,
             success: function(returndata) {
-                alert("success to linkk ");
+                
                 var data = JSON.parse(returndata);
-                alert(JSON.stringify(returndata));
+                alert(data);
+                console.log (data);
+                var dataString = JSON.stringify(returndata);
+                alert("success to linkk " );
 
 
                 if (data.status === 1 ) {
-                    alert("Data for " + userEmail + " backup successfully");
-                    window.location = 'index.html';
+                    alert("Data for " + JSON.stringify(returndata) + " backup successfully");
+                    //window.location = 'index.html';
                 } else if (data.status === 0 ){
                     alert("Data failed to backup, either internet error or data already backup for email " + userEmail);
                 }
