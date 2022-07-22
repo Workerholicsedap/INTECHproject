@@ -1,0 +1,18 @@
+
+Link : 
+https://script.google.com/macros/s/AKfycbyb2_1YtYCNzafFjLwRat144ldTLRxJeDVZNQc_6n8ee0GXbIb_95qyI-6RjQ7uEmrZSA/exec
+
+Spreadsheet Link:
+https://docs.google.com/spreadsheets/d/1oXo17KYNIdOhQ_9BfzV7wNWh7OFRmlcC31PfaOsu8JE/edit?usp=sharing
+
+GET Data:
+
+<link>?id=afwan
+
+POST Data:
+
+	1. Login
+	<link>?id=afwan&pass=123
+
+	2.
+	<link>?id=afwan&data=ayamikanudang 

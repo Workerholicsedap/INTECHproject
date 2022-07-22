@@ -17,6 +17,13 @@ develop -> owner, customer, admin
 policy? rm10 sebulan ke, apa ke
 byr online ke facetoface. (kalau menipu mcm mana nak cover)
 
+****UPDATE
+customer buat pembayaran -> order diterima, order siap, order selesai
+
+customer -> kalau pelanggan tetap/rekod baik, boleh order byk tnpa deposit
+customer -> dpt noti siap
+
+
 5. app barang kitar semula
 -support green planning
 -ada rider
