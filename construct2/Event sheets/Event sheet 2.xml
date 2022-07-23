@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 2</name>
+    <events>
+        <event-block sid="853766020749276">
+            <conditions>
+                <condition id="0" name="On changed" sid="866321850453035" type="FileChooser" />
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>

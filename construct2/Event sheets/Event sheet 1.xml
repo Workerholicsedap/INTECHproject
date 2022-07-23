@@ -4,17 +4,80 @@
     <name>Event sheet 1</name>
     <events>
         <variable constant="0" name="LINK" sid="673735970905360" static="0" type="text">https://script.google.com/macros/s/AKfycbxMNduPV1wkrugCf2F8WvyompjjSfMU_cr01AXwqyegNgqzccKx-VyGBU2yW5vD8BWH5g/exec</variable>
-        <event-block sid="373204176082301">
+        <comment>Login</comment>
+        <event-block sid="142030128311337">
             <conditions>
-                <condition id="0" name="On clicked" sid="446984550133450" type="Button" />
+                <condition id="0" name="On clicked" sid="387817902006410" type="Button" />
             </conditions>
             <actions>
-                <action id="0" name="Set text" sid="202935342147518" type="TBLoginUs">
-                    <param id="0" name="Text">&quot;ayam&quot;</param>
-                </action>
-                <action id="0" name="Request URL" sid="981365668621730" type="AJAX">
+                <action id="2" name="Post to URL" sid="919712475669657" type="AJAX">
                     <param id="0" name="Tag">&quot;&quot;</param>
-                    <param id="1" name="URL">&quot;http://&quot;</param>
+                    <param id="1" name="URL">LINK</param>
+                    <param id="2" name="Data">&quot;id=&quot; &amp; URLEncode(TBLoginUs.Text) &amp; &quot;&amp;pass=&quot; &amp; URLEncode(TBLoginPass.Text) &amp; &quot;&amp;req=login&quot;</param>
+                    <param id="3" name="Method">&quot;POST&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="625848039433626" type="System">
+                    <param id="0" name="Layout">Layout 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Register</comment>
+        <event-block sid="927542207643653">
+            <conditions>
+                <condition id="0" name="On clicked" sid="255982886099543" type="Button2" />
+            </conditions>
+            <actions>
+                <action id="2" name="Post to URL" sid="236253192272497" type="AJAX">
+                    <param id="0" name="Tag">&quot;&quot;</param>
+                    <param id="1" name="URL">LINK</param>
+                    <param id="2" name="Data">&quot;id=&quot; &amp; URLEncode(TextBox4.Text) &amp; &quot;&amp;pass=&quot; &amp; URLEncode(TextBox3.Text) &amp; &quot;&amp;req=register&quot;</param>
+                    <param id="3" name="Method">&quot;POST&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Insert Data</comment>
+        <event-block sid="298586786062974">
+            <conditions>
+                <condition id="0" name="On clicked" sid="609076289284220" type="Button3" />
+            </conditions>
+            <actions>
+                <action id="2" name="Post to URL" sid="376008826575715" type="AJAX">
+                    <param id="0" name="Tag">&quot;&quot;</param>
+                    <param id="1" name="URL">LINK</param>
+                    <param id="2" name="Data">&quot;id=&quot; &amp; URLEncode(TextBox5.Text) &amp; &quot;&amp;data=&quot; &amp; URLEncode(TextBox6.Text) </param>
+                    <param id="3" name="Method">&quot;POST&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Get Data</comment>
+        <event-block sid="375104128501722">
+            <conditions>
+                <condition id="0" name="On clicked" sid="344600996345505" type="Button4" />
+            </conditions>
+            <actions>
+                <action id="0" name="Request URL" sid="578907110939720" type="AJAX">
+                    <param id="0" name="Tag">&quot;&quot;</param>
+                    <param id="1" name="URL">LINK&amp;&quot;?id=&quot; &amp; TextBox7.Text</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="297994078948515">
+            <conditions>
+                <condition id="3" name="On any completed" sid="987309759208700" type="AJAX" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="673445238711223" type="TextDebug">
+                    <param id="0" name="Text">AJAX.LastData</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="620687240415975">
+            <conditions>
+                <condition id="4" name="On any error" sid="551592163556207" type="AJAX" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="343342036594955" type="TextDebug">
+                    <param id="0" name="Text">AJAX.LastData</param>
                 </action>
             </actions>
         </event-block>
