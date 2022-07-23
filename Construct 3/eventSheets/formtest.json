@@ -1,0 +1,168 @@
+{
+	"name": "FormTest",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LINK2",
+			"type": "string",
+			"initialValue": "https://script.google.com/macros/s/AKfycbxMNduPV1wkrugCf2F8WvyompjjSfMU_cr01AXwqyegNgqzccKx-VyGBU2yW5vD8BWH5g/exec",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 603752940488379
+		},
+		{
+			"eventType": "comment",
+			"text": "Login"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button",
+					"sid": 365835937425888
+				}
+			],
+			"actions": [
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 422597387888097,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TBLoginUs.Text) & \"&pass=\" & URLEncode(TBLoginPass.Text) & \"&req=login\"",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 417190702533040
+		},
+		{
+			"eventType": "comment",
+			"text": "Register"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button2",
+					"sid": 327901729025314
+				}
+			],
+			"actions": [
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 463163451048791,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TextBox4.Text) & \"&pass=\" & URLEncode(TextBox3.Text) & \"&req=register\"",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 588950742085313
+		},
+		{
+			"eventType": "comment",
+			"text": "Insert Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button3",
+					"sid": 990106445344062
+				}
+			],
+			"actions": [
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 107860740498326,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TextBox5.Text) & \"&data=\" & URLEncode(TextBox6.Text) ",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 545379357841852
+		},
+		{
+			"eventType": "comment",
+			"text": "Get Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button4",
+					"sid": 515702996701709
+				}
+			],
+			"actions": [
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 392241205500343,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK&\"?id=\" & TextBox7.Text"
+					}
+				}
+			],
+			"sid": 876955017258204
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-completed",
+					"objectClass": "AJAX",
+					"sid": 343535490340721
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 394340680725156,
+					"parameters": {
+						"text": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 614111191896976
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-error",
+					"objectClass": "AJAX",
+					"sid": 946022693029750
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 529948062219423,
+					"parameters": {
+						"text": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 366754689785584
+		}
+	],
+	"sid": 173441240821809
+}

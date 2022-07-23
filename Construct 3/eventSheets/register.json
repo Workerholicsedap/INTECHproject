@@ -1,15 +1,15 @@
 {
-	"name": "Event sheet 1",
+	"name": "Register",
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "LINK",
+			"name": "LINK3",
 			"type": "string",
 			"initialValue": "https://script.google.com/macros/s/AKfycbxMNduPV1wkrugCf2F8WvyompjjSfMU_cr01AXwqyegNgqzccKx-VyGBU2yW5vD8BWH5g/exec",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 673735970905360
+			"sid": 134267344573657
 		},
 		{
 			"eventType": "comment",
@@ -21,14 +21,14 @@
 				{
 					"id": "on-clicked",
 					"objectClass": "Button",
-					"sid": 446984550133450
+					"sid": 378125552975295
 				}
 			],
 			"actions": [
 				{
 					"id": "post-to-url",
 					"objectClass": "AJAX",
-					"sid": 981365668621730,
+					"sid": 179678051626769,
 					"parameters": {
 						"tag": "\"\"",
 						"url": "LINK",
@@ -37,7 +37,7 @@
 					}
 				}
 			],
-			"sid": 373204176082301
+			"sid": 977240350776762
 		},
 		{
 			"eventType": "comment",
@@ -49,14 +49,14 @@
 				{
 					"id": "on-clicked",
 					"objectClass": "Button2",
-					"sid": 129991181898591
+					"sid": 330905221733244
 				}
 			],
 			"actions": [
 				{
 					"id": "post-to-url",
 					"objectClass": "AJAX",
-					"sid": 342028567529901,
+					"sid": 764028088260856,
 					"parameters": {
 						"tag": "\"\"",
 						"url": "LINK",
@@ -65,7 +65,7 @@
 					}
 				}
 			],
-			"sid": 379153997244891
+			"sid": 792943892491466
 		},
 		{
 			"eventType": "comment",
@@ -77,14 +77,14 @@
 				{
 					"id": "on-clicked",
 					"objectClass": "Button3",
-					"sid": 970015690817879
+					"sid": 981198861216600
 				}
 			],
 			"actions": [
 				{
 					"id": "post-to-url",
 					"objectClass": "AJAX",
-					"sid": 323949317721437,
+					"sid": 113066172743797,
 					"parameters": {
 						"tag": "\"\"",
 						"url": "LINK",
@@ -93,7 +93,7 @@
 					}
 				}
 			],
-			"sid": 726350497041400
+			"sid": 210623284117493
 		},
 		{
 			"eventType": "comment",
@@ -105,21 +105,21 @@
 				{
 					"id": "on-clicked",
 					"objectClass": "Button4",
-					"sid": 139953801608909
+					"sid": 509715735196948
 				}
 			],
 			"actions": [
 				{
 					"id": "request-url",
 					"objectClass": "AJAX",
-					"sid": 458416276752558,
+					"sid": 975908343228790,
 					"parameters": {
 						"tag": "\"\"",
 						"url": "LINK&\"?id=\" & TextBox7.Text"
 					}
 				}
 			],
-			"sid": 224617044143444
+			"sid": 140753017294110
 		},
 		{
 			"eventType": "block",
@@ -127,20 +127,20 @@
 				{
 					"id": "on-any-completed",
 					"objectClass": "AJAX",
-					"sid": 275363157586315
+					"sid": 626864716708011
 				}
 			],
 			"actions": [
 				{
 					"id": "set-text",
 					"objectClass": "TextDebug",
-					"sid": 883281728688501,
+					"sid": 304577918474004,
 					"parameters": {
 						"text": "AJAX.LastData"
 					}
 				}
 			],
-			"sid": 852996353395983
+			"sid": 595689568908379
 		},
 		{
 			"eventType": "block",
@@ -148,21 +148,21 @@
 				{
 					"id": "on-any-error",
 					"objectClass": "AJAX",
-					"sid": 892353000046386
+					"sid": 142354519517375
 				}
 			],
 			"actions": [
 				{
 					"id": "set-text",
 					"objectClass": "TextDebug",
-					"sid": 596374967686312,
+					"sid": 891415751142679,
 					"parameters": {
 						"text": "AJAX.LastData"
 					}
 				}
 			],
-			"sid": 362708654162407
+			"sid": 555912376872765
 		}
 	],
-	"sid": 318612488394208
+	"sid": 905172494315136
 }

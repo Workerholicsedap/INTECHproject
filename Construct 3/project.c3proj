@@ -104,7 +104,13 @@
 			"LoginID2",
 			"TextBox7",
 			"Button4",
-			"TextDebug"
+			"TextDebug",
+			"Sprite5",
+			"Text",
+			"Text2",
+			"TextInput",
+			"Sprite6",
+			"Text3"
 		],
 		"subfolders": []
 	},
@@ -116,13 +122,17 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1"
+			"FormTest",
+			"Register",
+			"Login"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Login",
+			"FormTest",
+			"Register"
 		],
 		"subfolders": []
 	},

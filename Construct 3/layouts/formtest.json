@@ -1,5 +1,5 @@
 {
-	"name": "Layout 1",
+	"name": "FormTest",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -15,7 +15,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 0,
+					"uid": 23,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -50,7 +50,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 1,
+					"uid": 24,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -90,7 +90,7 @@
 						"initially-visible": true,
 						"origin": "center"
 					},
-					"uid": 2,
+					"uid": 25,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -123,14 +123,14 @@
 						"image-scale-y": 1,
 						"image-angle": 0
 					},
-					"uid": 4,
+					"uid": 26,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": -4,
-						"y": -5,
+						"x": -1,
+						"y": 1,
 						"width": 729,
-						"height": 116,
+						"height": 99,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -156,7 +156,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 5,
+					"uid": 27,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -189,7 +189,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 6,
+					"uid": 28,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -222,7 +222,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 7,
+					"uid": 29,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -255,7 +255,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 8,
+					"uid": 30,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -295,7 +295,7 @@
 						"initially-visible": true,
 						"origin": "center"
 					},
-					"uid": 9,
+					"uid": 31,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -337,7 +337,7 @@
 						"initially-visible": true,
 						"origin": "center"
 					},
-					"uid": 10,
+					"uid": 32,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -372,7 +372,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 11,
+					"uid": 33,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -405,7 +405,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 12,
+					"uid": 34,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -436,7 +436,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 13,
+					"uid": 35,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -467,7 +467,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 14,
+					"uid": 36,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -507,7 +507,7 @@
 						"initially-visible": true,
 						"origin": "center"
 					},
-					"uid": 16,
+					"uid": 37,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -542,7 +542,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 17,
+					"uid": 38,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -573,7 +573,7 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 18,
+					"uid": 39,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -613,7 +613,7 @@
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 19,
+					"uid": 40,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -632,9 +632,38 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Sprite5",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 41,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 144,
+						"y": 49,
+						"width": 222.31222924690235,
+						"height": 37.33487819413627,
+						"originX": 0.4961832061068702,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
-			"sid": 8722530541249526,
+			"sid": 232275044182061,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -663,7 +692,7 @@
 			"global": false
 		}
 	],
-	"sid": 8873350371196689,
+	"sid": 949531990653069,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 1440,
@@ -672,5 +701,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "FormTest"
 }
