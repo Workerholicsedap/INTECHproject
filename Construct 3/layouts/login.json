@@ -24,7 +24,7 @@
 					"behaviors": {},
 					"world": {
 						"x": -1,
-						"y": 1,
+						"y": -1,
 						"width": 729,
 						"height": 99,
 						"originX": 0,
@@ -196,7 +196,7 @@
 						"read-only": false,
 						"spell-check": false,
 						"type": "text",
-						"auto-font-size": true,
+						"auto-font-size": false,
 						"id": "",
 						"class": ""
 					},
@@ -271,7 +271,7 @@
 						"read-only": false,
 						"spell-check": false,
 						"type": "text",
-						"auto-font-size": true,
+						"auto-font-size": false,
 						"id": "",
 						"class": ""
 					},
