@@ -634,7 +634,7 @@
 					}
 				},
 				{
-					"type": "Sprite5",
+					"type": "SpriteLogo",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -708,5 +708,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "FormTest"
+	"eventSheet": null
 }

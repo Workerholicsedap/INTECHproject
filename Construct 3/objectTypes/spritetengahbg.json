@@ -1,7 +1,7 @@
 {
-	"name": "Sprite5",
+	"name": "SpriteTengahBG",
 	"plugin-id": "Sprite",
-	"sid": 436129618850447,
+	"sid": 869254733076577,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,25 +11,25 @@
 			{
 				"frames": [
 					{
-						"width": 131,
-						"height": 22,
-						"originX": 0.4961832061068702,
+						"width": 128,
+						"height": 74,
+						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 556530,
+						"imageSpriteId": 7109487,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 479649525500171,
+				"sid": 549101075198256,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 5
+				"speed": 0
 			}
 		],
 		"subfolders": []

@@ -113,7 +113,7 @@
 			"TextBox7",
 			"Button4",
 			"TextDebug",
-			"Sprite5",
+			"SpriteLogo",
 			"Text",
 			"Text2",
 			"TextInput",
@@ -123,15 +123,19 @@
 			"JSON",
 			"textdebuggg",
 			"TextInput3",
-			"Sprite7",
+			"SpriteMenu",
 			"Sprite8",
 			"Sprite9",
 			"Sprite10",
 			"Sprite11",
-			"Sprite12",
+			"SpriteTolak",
 			"Text4",
 			"Text5",
-			"Sprite13"
+			"Sprite13",
+			"SpriteButtonBawah",
+			"TextNota",
+			"SpriteTambah",
+			"SpriteTengahBG"
 		],
 		"subfolders": []
 	},
@@ -144,18 +148,19 @@
 	"layouts": {
 		"items": [
 			"CustLogin",
+			"CustMenuList",
 			"CustRegister",
 			"FormTest",
-			"CustQRScanner",
-			"CustMenuList"
+			"CustQRScanner"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"CustLogin",
-			"FormTest",
-			"CustRegister"
+			"CustRegister",
+			"DefaultThing",
+			"CustMenuList"
 		],
 		"subfolders": []
 	},

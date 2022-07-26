@@ -1,7 +1,7 @@
 {
-	"name": "Sprite7",
+	"name": "SpriteTolak",
 	"plugin-id": "Sprite",
-	"sid": 678455943055259,
+	"sid": 664446966017368,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,25 +11,37 @@
 			{
 				"frames": [
 					{
-						"width": 62,
-						"height": 51,
+						"width": 68,
+						"height": 68,
 						"originX": 0.5,
 						"originY": 0.5294117647058824,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4131021,
+						"imageSpriteId": 5512636,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 128,
+						"height": 74,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5290901,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 916590522686657,
+				"sid": 232783476060947,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 5
+				"speed": 0
 			}
 		],
 		"subfolders": []

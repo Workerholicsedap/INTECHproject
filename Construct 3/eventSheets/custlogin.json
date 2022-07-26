@@ -2,6 +2,10 @@
 	"name": "CustLogin",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "DefaultThing"
+		},
+		{
 			"eventType": "variable",
 			"name": "LINK",
 			"type": "string",
@@ -212,22 +216,6 @@
 						}
 					],
 					"sid": 677131912918283
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "append-text",
-							"objectClass": "textdebuggg",
-							"sid": 368078333586676,
-							"disabled": true,
-							"parameters": {
-								"text": "JSON.ToCompactString"
-							}
-						}
-					],
-					"sid": 176541581680255
 				}
 			]
 		},
