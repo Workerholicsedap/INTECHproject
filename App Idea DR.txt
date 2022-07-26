@@ -22,7 +22,7 @@ customer buat pembayaran -> order diterima, order siap, order selesai
 
 customer -> kalau pelanggan tetap/rekod baik, boleh order byk tnpa deposit
 customer -> dpt noti siap
-
+nlkjnkjnbkjnlkmlkm
 
 5. app barang kitar semula
 -support green planning
