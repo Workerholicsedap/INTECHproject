@@ -19,20 +19,23 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-clicked",
-					"objectClass": "Button",
-					"sid": 446984550133450
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 368856215419721,
+					"parameters": {
+						"object": "Sprite6"
+					}
 				}
 			],
 			"actions": [
 				{
 					"id": "post-to-url",
 					"objectClass": "AJAX",
-					"sid": 981365668621730,
+					"sid": 997019980279576,
 					"parameters": {
 						"tag": "\"\"",
 						"url": "LINK",
-						"data": "\"id=\" & URLEncode(TBLoginUs.Text) & \"&pass=\" & URLEncode(TBLoginPass.Text) & \"&req=login\"",
+						"data": "\"id=\" & URLEncode(TextInput.Text) & \"&pass=\" & URLEncode(TextInput2.Text) & \"&req=login\"",
 						"method": "\"POST\""
 					}
 				}
@@ -133,14 +136,120 @@
 			"actions": [
 				{
 					"id": "set-text",
-					"objectClass": "TextDebug",
+					"objectClass": "Text",
 					"sid": 883281728688501,
+					"disabled": true,
 					"parameters": {
 						"text": "AJAX.LastData"
 					}
+				},
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 300000074268012,
+					"parameters": {
+						"path": "\"data\"",
+						"json": "AJAX.LastData"
+					}
 				}
 			],
-			"sid": 852996353395983
+			"sid": 852996353395983,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 195056048694495,
+							"parameters": {
+								"path": "\"data.status\"",
+								"cmp": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 279006199236444,
+							"parameters": {
+								"text": "\"Success Login!\""
+							}
+						}
+					],
+					"sid": 957328374461092
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 975217163360144
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 506122172405613,
+							"parameters": {
+								"path": "\"data.status\"",
+								"cmp": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 225214295060350,
+							"parameters": {
+								"text": "\"Unsuccessful Login :(\""
+							}
+						}
+					],
+					"sid": 917914546485703
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 121146707108301
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 320478564847345,
+							"parameters": {
+								"text": "\"Unknown error :(\""
+							}
+						}
+					],
+					"sid": 677131912918283
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "textdebuggg",
+							"sid": 368078333586676,
+							"disabled": true,
+							"parameters": {
+								"text": "JSON.ToCompactString"
+							}
+						}
+					],
+					"sid": 176541581680255
+				}
+			]
 		},
 		{
 			"eventType": "block",

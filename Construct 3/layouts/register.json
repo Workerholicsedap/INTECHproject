@@ -378,7 +378,9 @@
 						"live-preview": false
 					},
 					"uid": 46,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"login": 0
+					},
 					"behaviors": {},
 					"world": {
 						"x": 344,
@@ -491,7 +493,9 @@
 						"live-preview": false
 					},
 					"uid": 9,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"login": 2
+					},
 					"behaviors": {},
 					"world": {
 						"x": 344,

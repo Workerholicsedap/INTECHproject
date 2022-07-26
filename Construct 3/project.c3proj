@@ -71,6 +71,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Fade",
 			"name": "Fade",
@@ -110,7 +118,10 @@
 			"Text2",
 			"TextInput",
 			"Sprite6",
-			"Text3"
+			"Text3",
+			"TextInput2",
+			"JSON",
+			"textdebuggg"
 		],
 		"subfolders": []
 	},
