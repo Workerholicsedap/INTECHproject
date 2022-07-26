@@ -29,6 +29,14 @@
 			],
 			"actions": [
 				{
+					"id": "set-text",
+					"objectClass": "textdebuggg",
+					"sid": 890999075442899,
+					"parameters": {
+						"text": "\"Processing to Server...\""
+					}
+				},
+				{
 					"id": "post-to-url",
 					"objectClass": "AJAX",
 					"sid": 997019980279576,
@@ -41,34 +49,6 @@
 				}
 			],
 			"sid": 373204176082301
-		},
-		{
-			"eventType": "comment",
-			"text": "Register"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked",
-					"objectClass": "Button2",
-					"sid": 129991181898591
-				}
-			],
-			"actions": [
-				{
-					"id": "post-to-url",
-					"objectClass": "AJAX",
-					"sid": 342028567529901,
-					"parameters": {
-						"tag": "\"\"",
-						"url": "LINK",
-						"data": "\"id=\" & URLEncode(TextBox4.Text) & \"&pass=\" & URLEncode(TextBox3.Text) & \"&req=register\"",
-						"method": "\"POST\""
-					}
-				}
-			],
-			"sid": 379153997244891
 		},
 		{
 			"eventType": "comment",
@@ -271,6 +251,34 @@
 				}
 			],
 			"sid": 362708654162407
+		},
+		{
+			"eventType": "comment",
+			"text": "Go to registration form"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 539186594127065,
+					"parameters": {
+						"object": "Text3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 487533475117413,
+					"parameters": {
+						"layout": "Register"
+					}
+				}
+			],
+			"sid": 854346879362000
 		}
 	],
 	"sid": 318612488394208
