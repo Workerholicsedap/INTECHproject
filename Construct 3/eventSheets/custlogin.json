@@ -1,5 +1,5 @@
 {
-	"name": "Login",
+	"name": "CustLogin",
 	"events": [
 		{
 			"eventType": "variable",
@@ -274,7 +274,7 @@
 					"objectClass": "System",
 					"sid": 487533475117413,
 					"parameters": {
-						"layout": "Register"
+						"layout": "CustRegister"
 					}
 				}
 			],

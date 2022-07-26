@@ -122,7 +122,8 @@
 			"TextInput2",
 			"JSON",
 			"textdebuggg",
-			"TextInput3"
+			"TextInput3",
+			"Sprite7"
 		],
 		"subfolders": []
 	},
@@ -134,17 +135,17 @@
 	},
 	"layouts": {
 		"items": [
-			"FormTest",
-			"Register",
-			"Login"
+			"CustLogin",
+			"CustRegister",
+			"FormTest"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Login",
+			"CustLogin",
 			"FormTest",
-			"Register"
+			"CustRegister"
 		],
 		"subfolders": []
 	},

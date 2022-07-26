@@ -1,5 +1,5 @@
 {
-	"name": "Register",
+	"name": "CustRegister",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -555,6 +555,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Sprite7",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 53,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 48,
+						"width": 57.30452750121184,
+						"height": 47.13759520260974,
+						"originX": 0.5,
+						"originY": 0.5294117647058824,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 115174515957968,
@@ -595,5 +624,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Register"
+	"eventSheet": "CustRegister"
 }
