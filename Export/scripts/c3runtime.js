@@ -3759,6 +3759,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json.Acts.SetJSON,
 		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.Json.Cnds.CompareValue,
+		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Cnds.Else,
@@ -3766,8 +3767,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Acts.GoToLayoutByName,
+		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Cnds.OnLayoutEnd,
-		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.Browser.Cnds.OnBackButton,
 		C3.Plugins.Browser.Acts.GoBack,
@@ -3863,6 +3864,7 @@ self.C3_JsPropNameTable = [
 	{Sprite23: 0},
 	{Browser: 0},
 	{LINK: 0},
+	{dahLogin: 0},
 	{lastLayout: 0},
 	{letakList: 0}
 ];
@@ -4016,6 +4018,7 @@ self.C3_ExpressionFuncs = [
 		() => "Success Register!",
 		() => "ID obtained :(",
 		() => "Undo",
+		() => "Home",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();

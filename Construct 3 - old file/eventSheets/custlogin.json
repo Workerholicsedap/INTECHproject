@@ -1,0 +1,273 @@
+{
+	"name": "CustLogin",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "DefaultThing"
+		},
+		{
+			"eventType": "variable",
+			"name": "LINK",
+			"type": "string",
+			"initialValue": "https://script.google.com/macros/s/AKfycbxMNduPV1wkrugCf2F8WvyompjjSfMU_cr01AXwqyegNgqzccKx-VyGBU2yW5vD8BWH5g/exec",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 673735970905360
+		},
+		{
+			"eventType": "comment",
+			"text": "Login"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 368856215419721,
+					"parameters": {
+						"object": "Sprite6"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "textdebuggg",
+					"sid": 890999075442899,
+					"parameters": {
+						"text": "\"Processing to Server...\""
+					}
+				},
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 997019980279576,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TextInput.Text) & \"&pass=\" & URLEncode(TextInput2.Text) & \"&req=login\"",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 373204176082301
+		},
+		{
+			"eventType": "comment",
+			"text": "Insert Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button3",
+					"sid": 970015690817879
+				}
+			],
+			"actions": [
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 323949317721437,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TextBox5.Text) & \"&data=\" & URLEncode(TextBox6.Text) ",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 726350497041400
+		},
+		{
+			"eventType": "comment",
+			"text": "Get Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button4",
+					"sid": 139953801608909
+				}
+			],
+			"actions": [
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 458416276752558,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK&\"?id=\" & TextBox7.Text"
+					}
+				}
+			],
+			"sid": 224617044143444
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-completed",
+					"objectClass": "AJAX",
+					"sid": 275363157586315
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 883281728688501,
+					"disabled": true,
+					"parameters": {
+						"text": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 300000074268012,
+					"parameters": {
+						"path": "\"data\"",
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 852996353395983,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 195056048694495,
+							"parameters": {
+								"path": "\"data.status\"",
+								"cmp": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 279006199236444,
+							"parameters": {
+								"text": "\"Success Login!\""
+							}
+						}
+					],
+					"sid": 957328374461092
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 975217163360144
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 506122172405613,
+							"parameters": {
+								"path": "\"data.status\"",
+								"cmp": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 225214295060350,
+							"parameters": {
+								"text": "\"Unsuccessful Login :(\""
+							}
+						}
+					],
+					"sid": 917914546485703
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 121146707108301
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 320478564847345,
+							"parameters": {
+								"text": "\"Unknown error :(\""
+							}
+						}
+					],
+					"sid": 677131912918283
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-error",
+					"objectClass": "AJAX",
+					"sid": 892353000046386
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 596374967686312,
+					"parameters": {
+						"text": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 362708654162407
+		},
+		{
+			"eventType": "comment",
+			"text": "Go to registration form"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 539186594127065,
+					"parameters": {
+						"object": "Text3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 487533475117413,
+					"parameters": {
+						"layout": "CustRegister"
+					}
+				}
+			],
+			"sid": 854346879362000
+		}
+	],
+	"sid": 318612488394208
+}
