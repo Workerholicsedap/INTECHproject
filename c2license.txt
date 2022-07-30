@@ -1,9 +1,0 @@
-﻿License type: BUSINESS
-Product: Construct 2
-Licensed to: Afwan
-Email: af1gaming01@gmail.com
-Comment: With best wishes from Figgler [mrfiggler@gmail.com]
-Timestamp: 1652138302
-Hash: FC2B658456AFC94822E414616D669A256DFBC4B0C48B2F6C
-
-This is PRIVATE license. Please TURN OFF "UPDATE CHECKING" in C2 preferences BEFORE USE!!!
