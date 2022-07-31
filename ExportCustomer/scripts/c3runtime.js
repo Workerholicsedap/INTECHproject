@@ -3764,7 +3764,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.AJAX.Cnds.OnAnyError,
+		C3.Plugins.TextBox.Cnds.CompareText,
 		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.Json.Acts.SetValue,
+		C3.Plugins.Json.Exps.GetAsCompactString,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Acts.GoToLayoutByName,
 		C3.Plugins.System.Cnds.CompareVar,
@@ -3782,17 +3785,19 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
-		C3.Plugins.System.Exps.loopindex,
+		C3.Plugins.Json.Exps.CurrentKey,
 		C3.Plugins.Text.Acts.SetInstanceVar,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.Text.Cnds.CompareInstanceVar,
-		C3.Plugins.Text.Cnds.PickDistance,
-		C3.Plugins.Touch.Exps.X,
-		C3.Plugins.Touch.Exps.Y,
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.Text.Exps.Text,
 		C3.Plugins.Text.Cnds.CompareText,
+		C3.Plugins.Json.Acts.SetObject,
+		C3.Plugins.Json.Acts.SetArray,
+		C3.Plugins.Json.Acts.SetPath,
+		C3.Plugins.System.Cnds.ForEach,
+		C3.Plugins.Sprite.Exps.AnimationFrame,
 		C3.Plugins.Browser.Acts.Vibrate
 	];
 };
@@ -3837,8 +3842,8 @@ self.C3_JsPropNameTable = [
 	{Sprite8: 0},
 	{Sprite9: 0},
 	{Sprite10: 0},
-	{Sprite11: 0},
 	{item: 0},
+	{Sprite11: 0},
 	{SpriteTolak: 0},
 	{Text4: 0},
 	{Text5: 0},
@@ -3863,10 +3868,13 @@ self.C3_JsPropNameTable = [
 	{Sprite26: 0},
 	{Sprite23: 0},
 	{Browser: 0},
+	{TextInput4: 0},
+	{TextInput5: 0},
 	{LINK: 0},
 	{dahLogin: 0},
 	{lastLayout: 0},
-	{letakList: 0}
+	{letakList: 0},
+	{listCount: 0}
 ];
 }
 
@@ -4007,12 +4015,15 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		() => "phoneNum",
+		() => "email",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
 			const f2 = p._GetNode(2).GetBoundMethod();
 			const n3 = p._GetNode(3);
-			return () => (((("id=" + f0(n1.ExpObject())) + "&pass=") + f2(n3.ExpObject())) + "&req=register");
+			const n4 = p._GetNode(4);
+			return () => ((((("id=" + f0(n1.ExpObject())) + "&pass=") + f2(n3.ExpObject())) + "&req=register&data=") + n4.ExpObject(""));
 		},
 		() => "Password input doesn't same as Confirm Password input!!",
 		() => "Success Register!",
@@ -4051,7 +4062,29 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			return () => (f0(n1.ExpObject()) - 1);
 		},
-		() => "200,100,200"
+		() => "order",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => and(".", n0.ExpInstVar());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and(".", n0.ExpInstVar()) + ".gambar");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and(".", n0.ExpInstVar()) + ".nama");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and(".", n0.ExpInstVar()) + ".value");
+		},
+		() => "200,100,200",
+		() => 230,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(".value");
+		}
 ];
 
 
