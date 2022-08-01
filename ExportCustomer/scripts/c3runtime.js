@@ -3775,6 +3775,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.Browser.Cnds.OnBackButton,
 		C3.Plugins.Browser.Acts.GoBack,
+		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.AJAX.Cnds.OnComplete,
@@ -3787,10 +3788,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.Json.Exps.CurrentKey,
 		C3.Plugins.Text.Acts.SetInstanceVar,
-		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.Touch.Cnds.OnTouchObject,
-		C3.Plugins.Text.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Exps.int,
+		C3.Plugins.System.Acts.AddVar,
+		C3.Plugins.Text.Cnds.CompareInstanceVar,
 		C3.Plugins.Text.Exps.Text,
 		C3.Plugins.Text.Cnds.CompareText,
 		C3.Plugins.Json.Acts.SetObject,
@@ -3798,7 +3798,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json.Acts.SetPath,
 		C3.Plugins.System.Cnds.ForEach,
 		C3.Plugins.Sprite.Exps.AnimationFrame,
-		C3.Plugins.Browser.Acts.Vibrate
+		C3.Plugins.Browser.Acts.Vibrate,
+		C3.Plugins.Text.Acts.TypewriterText,
+		C3.Plugins.Text.Acts.SetVisible,
+		C3.Plugins.Sprite.Acts.SetVisible
 	];
 };
 self.C3_JsPropNameTable = [
@@ -3829,6 +3832,7 @@ self.C3_JsPropNameTable = [
 	{gotoLayout: 0},
 	{SpriteLogo: 0},
 	{Text: 0},
+	{item: 0},
 	{Text2: 0},
 	{TextInput: 0},
 	{login: 0},
@@ -3842,7 +3846,6 @@ self.C3_JsPropNameTable = [
 	{Sprite8: 0},
 	{Sprite9: 0},
 	{Sprite10: 0},
-	{item: 0},
 	{Sprite11: 0},
 	{SpriteTolak: 0},
 	{Text4: 0},
@@ -3870,11 +3873,16 @@ self.C3_JsPropNameTable = [
 	{Browser: 0},
 	{TextInput4: 0},
 	{TextInput5: 0},
+	{Text8: 0},
+	{Sprite24: 0},
+	{harga: 0},
+	{Text9: 0},
 	{LINK: 0},
 	{dahLogin: 0},
 	{lastLayout: 0},
 	{letakList: 0},
-	{listCount: 0}
+	{listCount: 0},
+	{totalHarga: 0}
 ];
 }
 
@@ -4050,7 +4058,17 @@ self.C3_ExpressionFuncs = [
 		() => 4,
 		() => 5,
 		() => 6,
+		() => 7,
 		() => "0",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0(n1.ExpObject(".harga"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => and("RM", n0.ExpObject(".harga"));
+		},
 		() => 130,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -4079,12 +4097,35 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (and(".", n0.ExpInstVar()) + ".value");
 		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and(".", n0.ExpInstVar()) + ".harga");
+		},
 		() => "200,100,200",
 		() => 230,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(".value");
-		}
+		},
+		() => 8,
+		() => 9,
+		() => 10,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => and("* RM", n0.ExpObject(".harga"));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const n3 = p._GetNode(3);
+			return () => (f0(n1.ExpObject(".harga")) * f2(n3.ExpObject(".value")));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("RM ", v0.GetValue());
+		},
+		() => 15
 ];
 
 
