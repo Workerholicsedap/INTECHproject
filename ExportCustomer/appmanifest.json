@@ -1,7 +1,7 @@
 {
 	"name": "ODABEGE-Customer",
 	"short_name": "ODABEGE-Customer",
-	"description": "",
+	"description": "Odabege app helps people to sell burger",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
