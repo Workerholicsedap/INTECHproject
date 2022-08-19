@@ -1,0 +1,43 @@
+{
+	"name": "Sprite",
+	"plugin-id": "Sprite",
+	"sid": 416098154404965,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 104264971057917
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 707,
+						"height": 703,
+						"originX": 0.459689,
+						"originY": 0.493599,
+						"originalSource": "C:\\Users\\Afwan\\Documents\\Save The Ocean3.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2785299,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 173868970931277,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

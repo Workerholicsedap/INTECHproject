@@ -1,0 +1,21 @@
+{
+  "namaKedai" : "BURGER SHEDAP UMMPH",
+  
+  "menu": [
+          {
+            "gambar" : 0,
+            "nama" : "Burger Daging Cheese",
+            "harga" : 5
+          },
+          {
+            "gambar" : 1,
+            "nama" : "Burger Daging Special",
+            "harga" : 6
+          },
+          {
+            "gambar" : 2,
+            "nama" : "Burger Daging Om Om",
+            "harga" : 10
+          }
+        ]
+      }

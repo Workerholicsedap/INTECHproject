@@ -1,0 +1,16 @@
+{
+	"name": "Text2",
+	"plugin-id": "Text",
+	"sid": 349415080778341,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "item",
+			"type": "number",
+			"desc": "",
+			"sid": 790875422135350
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

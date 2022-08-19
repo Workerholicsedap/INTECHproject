@@ -1,0 +1,16 @@
+{
+	"name": "Text13",
+	"plugin-id": "Text",
+	"sid": 751688994977110,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "item",
+			"type": "number",
+			"desc": "",
+			"sid": 371389745086176
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
