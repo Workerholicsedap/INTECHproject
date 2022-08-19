@@ -69,6 +69,86 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 641408158729207
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 100212613589687,
+					"parameters": {
+						"variable": "letakList",
+						"value": "630"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 294754775384077,
+					"parameters": {
+						"variable": "listCount",
+						"value": "0"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 785629622296925,
+					"parameters": {
+						"tag": "\"\"",
+						"file": "orderBege.json"
+					}
+				}
+			],
+			"sid": 790709604751463
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 499728610028551
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 208385793829761,
+					"parameters": {
+						"variable": "letakList",
+						"value": "630"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 707739736030289,
+					"parameters": {
+						"variable": "listCount",
+						"value": "0"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 617442612835378,
+					"parameters": {
+						"tag": "\"\"",
+						"file": "orderBege.json"
+					}
+				}
+			],
+			"sid": 604231099502232
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-completed",
 					"objectClass": "AJAX",
 					"sid": 816516150927810,
