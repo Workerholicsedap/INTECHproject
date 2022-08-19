@@ -52,6 +52,19 @@
 			],
 			"actions": [
 				{
+					"id": "request-camera",
+					"objectClass": "UserMedia",
+					"sid": 468500430009575,
+					"parameters": {
+						"source": "0",
+						"preferred-direction": "environment",
+						"preferred-width": "0",
+						"preferred-height": "0",
+						"include-mic": false,
+						"mic-source": "0"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 138393188055822,
@@ -285,6 +298,210 @@
 							"parameters": {
 								"frame-number": "1"
 							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 583262605156332,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 704292028795526,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 780814647147224,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 923458438342278,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 732501804831016,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 532666398890553,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 953027519222368,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 924684392688954,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 795240077123942,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 774534299097284,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 479927639009521,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 637084906569886,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 841895946545870,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 588734189438483,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 475229700713610,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 958108564027859,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 740711110760773,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 167653175167597,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 108887873199956,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 256191388388290,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 738323669167680,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 989209862748695,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 572822624006289,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 885618902279499,
+							"parameters": {
+								"frame-number": "1"
+							}
 						}
 					],
 					"sid": 243157867864568,
@@ -442,6 +659,64 @@
 				}
 			],
 			"sid": 529063683403343
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "StartDecode",
+					"sid": 677862610379573
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 105838473252514,
+					"parameters": {
+						"variable": "AllowCapture",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 287253561442341,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"value": "1"
+					}
+				},
+				{
+					"id": "snapshot",
+					"objectClass": "UserMedia",
+					"sid": 713610312466850,
+					"parameters": {
+						"format": "jpeg",
+						"jpeg-quality": "100"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "scanLine",
+					"sid": 337186721939913,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "scanLine",
+					"sid": 310631703004334,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 857309492100078
 		},
 		{
 			"eventType": "block",
