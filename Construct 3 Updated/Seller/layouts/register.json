@@ -1249,7 +1249,7 @@
 					}
 				},
 				{
-					"type": "TiledBackground1",
+					"type": "TiledBackground2",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
@@ -1263,7 +1263,7 @@
 					},
 					"uid": 18,
 					"instanceVariables": {
-						"Variable1": 1
+						"item": 1
 					},
 					"behaviors": {
 						"Tween": {
@@ -1350,7 +1350,7 @@
 					}
 				},
 				{
-					"type": "TiledBackground2",
+					"type": "TiledBackground3",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",

@@ -7,7 +7,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "TiledBackground1",
+					"type": "TiledBackground2",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
@@ -21,7 +21,7 @@
 					},
 					"uid": 297,
 					"instanceVariables": {
-						"Variable1": 1
+						"item": 1
 					},
 					"behaviors": {
 						"Tween": {
@@ -48,7 +48,7 @@
 					}
 				},
 				{
-					"type": "TiledBackground1",
+					"type": "TiledBackground2",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
@@ -62,7 +62,7 @@
 					},
 					"uid": 298,
 					"instanceVariables": {
-						"Variable1": 1
+						"item": 1
 					},
 					"behaviors": {
 						"Tween": {

@@ -88,7 +88,7 @@
 			"Text2",
 			"Text3",
 			"textdebuggg",
-			"TiledBackground1",
+			"TiledBackground2",
 			"Sprite6",
 			"SpriteButtonBawah",
 			"Sprite7",
@@ -145,7 +145,7 @@
 			"TextInput7",
 			"Touch",
 			"AJAX",
-			"TiledBackground2"
+			"TiledBackground3"
 		],
 		"subfolders": []
 	},

@@ -1,10 +1,23 @@
 {
 	"name": "TiledBackground2",
 	"plugin-id": "TiledBg",
-	"sid": 634830383167426,
+	"sid": 920671366779125,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "item",
+			"type": "number",
+			"desc": "",
+			"sid": 417461521237706
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 522294958253191
+		}
+	],
 	"effectTypes": [],
 	"image": {
 		"width": 944,
@@ -14,7 +27,7 @@
 		"originalSource": "",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 119064,
+		"imageSpriteId": 994086,
 		"useCollisionPoly": true
 	}
 }
