@@ -1,0 +1,416 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 30200,
+	"name": "ODABEGE-Customer",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "UserMedia",
+			"name": "User Media",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sparsha_qrCode",
+			"name": "QR Code",
+			"author": "Sparsha",
+			"version": "4.0.0",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r302",
+			"bundled": false
+		}
+	],
+	"uniqueId": "2m2oqhlgof90t",
+	"objectTypes": {
+		"items": [
+			"Sprite",
+			"TBLoginUs",
+			"LoginID",
+			"TiledBackground",
+			"TiledBackground2",
+			"List",
+			"Sprite2",
+			"Sprite3",
+			"Sprite4",
+			"Touch",
+			"Button",
+			"TBLoginPass",
+			"TextBox3",
+			"TextBox4",
+			"TextBox5",
+			"TextBox6",
+			"Button2",
+			"Button3",
+			"AJAX",
+			"LoginID2",
+			"TextBox7",
+			"Button4",
+			"TextDebug",
+			"SpriteLogo",
+			"Text",
+			"Text2",
+			"TextInput",
+			"Sprite6",
+			"Text3",
+			"TextInput2",
+			"JSON",
+			"textdebuggg",
+			"TextInput3",
+			"SpriteMenu",
+			"Sprite8",
+			"Sprite9",
+			"Sprite10",
+			"Sprite11",
+			"SpriteTolak",
+			"Text4",
+			"Text5",
+			"Sprite13",
+			"SpriteButtonBawah",
+			"TextNota",
+			"SpriteTambah",
+			"SpriteTengahBG",
+			"Sprite12",
+			"Sprite7",
+			"Sprite5",
+			"Text6",
+			"Sprite14",
+			"Sprite16",
+			"Sprite17",
+			"Sprite18",
+			"Text7",
+			"Sprite19",
+			"Sprite20",
+			"Sprite21",
+			"Sprite22",
+			"Sprite26",
+			"Sprite23",
+			"Browser",
+			"TextInput4",
+			"TextInput5",
+			"Text8",
+			"Sprite24",
+			"Text9",
+			"Particles",
+			"Text10",
+			"Text11",
+			"Text12",
+			"Text13",
+			"Text14",
+			"Text15",
+			"Text16",
+			"Text17",
+			"UserMedia",
+			"StartDecode",
+			"DecodedText",
+			"scanLine",
+			"StopDecode",
+			"QRCode",
+			"Button5"
+		],
+		"subfolders": []
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Login",
+			"MenuList",
+			"Register",
+			"FormTest",
+			"QRScanner",
+			"ConfirmationList",
+			"Deposit",
+			"UserProfile",
+			"PrivacyPolicy",
+			"HamburgerGlyphicon",
+			"TransactionHistory",
+			"OrderHistory",
+			"WalletStatus",
+			"PersonalDetails",
+			"AboutUs",
+			"ContactUs",
+			"AssetsSimpanSini",
+			"QRScanner2"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"CustLogin",
+			"CustRegister",
+			"DefaultThing",
+			"CustMenuList",
+			"ConfirmationList",
+			"QRScanner2"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 936849814132125,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 939735431862097,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-114.png",
+					"type": "image/png",
+					"sid": 658750558526800,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 614506243541379,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 295508685640770,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 211254334636661,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "orderBege.json",
+					"type": "application/json",
+					"sid": 784289367821306,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Odabege app helps people to sell burger",
+		"version": "1.0.0.0",
+		"author": "AzimAfwanAfiqAfif",
+		"authorEmail": "af1gaming01@gmail.com",
+		"authorWebsite": "http://",
+		"appId": "com.k1intech.odabege",
+		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "portrait",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https"
+	},
+	"viewportWidth": 720,
+	"viewportHeight": 1280,
+	"firstLayout": "Login"
+}

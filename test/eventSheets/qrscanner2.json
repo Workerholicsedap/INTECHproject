@@ -1,0 +1,824 @@
+{
+	"name": "QRScanner2",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "TakeSnap",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 924775117330047
+		},
+		{
+			"eventType": "variable",
+			"name": "MasterSwitch",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 586878287668174
+		},
+		{
+			"eventType": "variable",
+			"name": "AllowCapture",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 109220641437334
+		},
+		{
+			"eventType": "variable",
+			"name": "cango",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 155143332051977
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 553803161248124
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 138393188055822,
+					"parameters": {
+						"variable": "TakeSnap",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 554229257459467,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 249507312607383,
+					"parameters": {
+						"variable": "AllowCapture",
+						"value": "0"
+					}
+				},
+				{
+					"id": "request-camera",
+					"objectClass": "UserMedia",
+					"sid": 206067194296298,
+					"parameters": {
+						"source": "0",
+						"preferred-direction": "environment",
+						"preferred-width": "0",
+						"preferred-height": "0",
+						"include-mic": false,
+						"mic-source": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 557497828431956,
+					"parameters": {
+						"variable": "cango",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 364015177160657
+		},
+		{
+			"eventType": "comment",
+			"text": "We want to start decode automatically without requiring to press any button after start of layout. It takes some time for the Device to Start the Camera after Media Request is Approved. So we are waiting for 1 sec. (Might require more time for an old device) [Recomended to increase the time to be safe, as currently there is no Condition in C3 for this feature]"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-media-request-approved",
+					"objectClass": "UserMedia",
+					"sid": 633720878849755
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 608012417915649,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 772385580097136,
+					"parameters": {
+						"variable": "AllowCapture",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 862356384134794,
+					"parameters": {
+						"variable": "TakeSnap",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 207350138815663,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 688514432366916
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 197437607077595,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 867287044140825,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 213069073564530,
+							"parameters": {
+								"variable": "TakeSnap",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 390809910211257
+						}
+					],
+					"actions": [
+						{
+							"id": "snapshot",
+							"objectClass": "UserMedia",
+							"sid": 303590046399655,
+							"parameters": {
+								"format": "jpeg",
+								"jpeg-quality": "100"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 432604770159200,
+							"parameters": {
+								"variable": "TakeSnap",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 128616699215596
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-snapshot",
+							"objectClass": "UserMedia",
+							"sid": 509026227078399
+						}
+					],
+					"actions": [
+						{
+							"id": "read-qr",
+							"objectClass": "QRCode",
+							"sid": 451587229616333,
+							"parameters": {
+								"url": "UserMedia.SnapshotURL"
+							}
+						}
+					],
+					"sid": 214166354222236
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-read",
+							"objectClass": "QRCode",
+							"sid": 816690602168576
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "DecodedText",
+							"sid": 273039606984603,
+							"parameters": {
+								"text": "QRCode.data"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 573999011046167,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 791787618507509,
+							"parameters": {
+								"variable": "MasterSwitch",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "scanLine",
+							"sid": 221103081639727,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "scanLine",
+							"sid": 270194045326695,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 243157867864568,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 550323425465139,
+									"parameters": {
+										"first-value": "QRCode.data",
+										"comparison": 0,
+										"second-value": "\"www,odabege.com\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 569263864598664,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"callFunction": "stopCamera",
+									"sid": 436828446241648
+								},
+								{
+									"id": "set-text",
+									"objectClass": "DecodedText",
+									"sid": 381788759188307,
+									"parameters": {
+										"text": "\"Stopping camera...\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 396455825895673,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 443345741075283,
+									"parameters": {
+										"layout": "MenuList"
+									}
+								}
+							],
+							"sid": 448698633761131
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "QRCode",
+							"sid": 465806289759007
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "DecodedText",
+							"sid": 112044881505338,
+							"parameters": {
+								"text": "\"[QR not found]\""
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "DecodedText",
+							"sid": 853693944795249,
+							"parameters": {
+								"color": "rgbEx(100, 0, 0)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 583433978799378,
+							"parameters": {
+								"variable": "TakeSnap",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 725174329371837
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "StartDecode",
+					"sid": 673196975581050
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 723897251788532,
+					"parameters": {
+						"variable": "AllowCapture",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 344644083229604,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"value": "1"
+					}
+				},
+				{
+					"id": "snapshot",
+					"objectClass": "UserMedia",
+					"sid": 298453897473587,
+					"parameters": {
+						"format": "jpeg",
+						"jpeg-quality": "100"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "scanLine",
+					"sid": 809952402203140,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "scanLine",
+					"sid": 125984870899478,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 529063683403343
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "StopDecode",
+					"sid": 212860352889154
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 189487533372692,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 486362373025566,
+					"parameters": {
+						"variable": "TakeSnap",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "scanLine",
+					"sid": 496208784675401,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "scanLine",
+					"sid": 424329111480678,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 349197006118416
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 456193569081225
+				}
+			],
+			"actions": [],
+			"sid": 619772657534124
+		},
+		{
+			"functionName": "stopCamera",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 937847693427418,
+					"parameters": {
+						"variable": "MasterSwitch",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 438272555360232,
+					"parameters": {
+						"variable": "TakeSnap",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "scanLine",
+					"sid": 932511419958370,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "scanLine",
+					"sid": 532627797186231,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 278705825562126,
+					"parameters": {
+						"seconds": "1.1"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "UserMedia",
+					"sid": 743639504833757
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 768562497127870,
+					"parameters": {
+						"variable": "cango",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 777993647958933
+		},
+		{
+			"eventType": "comment",
+			"text": "set canGo, baru boleh keluar"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 776984953815923,
+					"parameters": {
+						"object": "SpriteButtonBawah"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "stopCamera",
+					"sid": 402782901835734
+				},
+				{
+					"id": "set-text",
+					"objectClass": "DecodedText",
+					"sid": 255761541649419,
+					"parameters": {
+						"text": "\"Stopping camera...\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 274470770540317,
+					"parameters": {
+						"seconds": "2"
+					}
+				}
+			],
+			"sid": 251953340725341,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Undo"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteButtonBawah",
+							"sid": 793675433036396,
+							"parameters": {
+								"instance-variable": "gotoLayout",
+								"comparison": 0,
+								"value": "\"Undo\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 832145060382054,
+							"parameters": {
+								"layout": "lastLayout"
+							}
+						}
+					],
+					"sid": 130053364923159
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteButtonBawah",
+							"sid": 705463690248772,
+							"parameters": {
+								"instance-variable": "gotoLayout",
+								"comparison": 0,
+								"value": "\"Home\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 346635511894826,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 204763905899710,
+									"parameters": {
+										"variable": "dahLogin",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 827050251815387,
+									"parameters": {
+										"layout": "Login"
+									}
+								}
+							],
+							"sid": 526814589339899
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 569993302000192
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 780859506708236,
+									"parameters": {
+										"layout": "QRScanner"
+									}
+								}
+							],
+							"sid": 954693004508348
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 463294286648174
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 272020599975261,
+							"parameters": {
+								"layout": "SpriteButtonBawah.gotoLayout"
+							}
+						}
+					],
+					"sid": 380242102002768
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Undo"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-back-button",
+					"objectClass": "Browser",
+					"sid": 176980088211614
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "stopCamera",
+					"sid": 771307634324897
+				},
+				{
+					"id": "set-text",
+					"objectClass": "DecodedText",
+					"sid": 835515758694074,
+					"parameters": {
+						"text": "\"Stopping camera...\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 662031435526184,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "go-back",
+					"objectClass": "Browser",
+					"sid": 891410167740106
+				}
+			],
+			"sid": 423487366895542
+		},
+		{
+			"eventType": "comment",
+			"text": "SKIP BUTTON KE KEDAI BURGER SEDAP UMPPHH TERUS"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button5",
+					"sid": 182830923166343
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "stopCamera",
+					"sid": 659765297640627
+				},
+				{
+					"id": "set-text",
+					"objectClass": "DecodedText",
+					"sid": 206330705896874,
+					"parameters": {
+						"text": "\"Stopping camera...\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 243305238206085,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 143096502776140,
+					"parameters": {
+						"layout": "MenuList"
+					}
+				}
+			],
+			"sid": 774169074524303
+		}
+	],
+	"sid": 384973601063622
+}

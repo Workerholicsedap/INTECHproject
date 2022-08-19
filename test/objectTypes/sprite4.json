@@ -1,0 +1,37 @@
+{
+	"name": "Sprite4",
+	"plugin-id": "Sprite",
+	"sid": 524090364262196,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 521,
+						"height": 1080,
+						"originX": 0.882917,
+						"originY": 0.5,
+						"originalSource": "C:\\Users\\Aifiq\\Downloads\\wallpaperflare.com_wallpaper.jpg",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 840700,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 625307222649592,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

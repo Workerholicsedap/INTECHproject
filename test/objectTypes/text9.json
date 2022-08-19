@@ -1,0 +1,22 @@
+{
+	"name": "Text9",
+	"plugin-id": "Text",
+	"sid": 958518171771982,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "item",
+			"type": "number",
+			"desc": "",
+			"sid": 407693427531771
+		},
+		{
+			"name": "harga",
+			"type": "number",
+			"desc": "",
+			"sid": 209582340233996
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

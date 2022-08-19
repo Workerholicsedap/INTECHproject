@@ -1,0 +1,838 @@
+{
+	"name": "TransactionHistory",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "TiledBackground2",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 193,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 729,
+						"height": 99,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TiledBackground2",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 195,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": -7,
+						"y": 1181,
+						"width": 729,
+						"height": 99,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteButtonBawah",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 197,
+					"instanceVariables": {
+						"gotoLayout": "QRScanner"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 140,
+						"y": 1232,
+						"width": 80,
+						"height": 80,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteButtonBawah",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 198,
+					"instanceVariables": {
+						"gotoLayout": ""
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 360,
+						"y": 1232,
+						"width": 80,
+						"height": 80,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteButtonBawah",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 199,
+					"instanceVariables": {
+						"gotoLayout": "UserProfile"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 580,
+						"y": 1232,
+						"width": 80,
+						"height": 80,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "____________________________________________________________________",
+						"enable-bbcode": true,
+						"font": "sans-serif",
+						"size": 35,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 200,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -4,
+						"y": 108,
+						"width": 724.0062283063974,
+						"height": 102,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0.0007751957132846599,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Transaction History",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 201,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 17,
+						"y": 113,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "____________________________________________________________________",
+						"enable-bbcode": true,
+						"font": "sans-serif",
+						"size": 35,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 202,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -5,
+						"y": 345,
+						"width": 730.0008001341628,
+						"height": 102,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0.0007751957132846599,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "---Deposit Transaction---",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 203,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 10,
+						"y": 195,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Date : 12 July 2022",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 204,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 10,
+						"y": 239,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Time = 12:30 AM ",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 205,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 12,
+						"y": 282,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Transaction Amount RM : 30.00",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 206,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 14,
+						"y": 324,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "____________________________________________________________________",
+						"enable-bbcode": true,
+						"font": "sans-serif",
+						"size": 35,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 207,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -6,
+						"y": 575,
+						"width": 733.0046752109484,
+						"height": 102,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0.0007751957132846599,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "---Deposit Transaction---",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 208,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 10,
+						"y": 423,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Date : 26 January 2022",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 209,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 10,
+						"y": 467,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Time = 04:00 PM",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 210,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 12,
+						"y": 510,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text2",
+					"properties": {
+						"text": "Transaction Amount RM : 56.00",
+						"enable-bbcode": true,
+						"font": "Arial Rounded MT",
+						"size": 25,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 211,
+					"instanceVariables": {
+						"item": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 14,
+						"y": 552,
+						"width": 533,
+						"height": 76,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteButtonBawah",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 194,
+					"instanceVariables": {
+						"gotoLayout": "Home"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 156,
+						"y": 49,
+						"width": 246.90698590572362,
+						"height": 41.46529534294595,
+						"originX": 0.5,
+						"originY": 0.5454545454545454,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteButtonBawah",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 4,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 196,
+					"instanceVariables": {
+						"gotoLayout": "HamburgerGlyphicon"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 655,
+						"y": 47,
+						"width": 68.06818567176032,
+						"height": 55.99157208483509,
+						"originX": 0.5080645161290323,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 136450691172269,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				0.9882352941176471,
+				0.9450980392156862,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 961061692200921,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 720,
+	"height": 2560,
+	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": "CustLogin"
+}
