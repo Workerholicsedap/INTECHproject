@@ -233,7 +233,6 @@
 	"layouts": {
 		"items": [
 			"Login",
-			"MenuList",
 			"Register",
 			"FormTest",
 			"QRScanner",

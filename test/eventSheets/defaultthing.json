@@ -217,16 +217,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 617618692103126,
-					"parameters": {
-						"layout": "MenuList"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 499973610109308
 		},
 		{
