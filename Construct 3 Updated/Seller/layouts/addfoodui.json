@@ -1594,7 +1594,11 @@
 					}
 				},
 				{
+<<<<<<< HEAD
 					"type": "TiledBackground2",
+=======
+					"type": "TiledBackground1",
+>>>>>>> parent of f8b7db3 (addfoodui seeller update)
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",
