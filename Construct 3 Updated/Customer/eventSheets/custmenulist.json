@@ -1,0 +1,661 @@
+{
+	"name": "CustMenuList",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "DefaultThing"
+		},
+		{
+			"eventType": "variable",
+			"name": "letakList",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 952475530960342
+		},
+		{
+			"eventType": "variable",
+			"name": "listCount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 580552028398696
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 487073769215034
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 281231060465368,
+					"parameters": {
+						"variable": "letakList",
+						"value": "630"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 159632934131463,
+					"parameters": {
+						"variable": "listCount",
+						"value": "0"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 530337442418916,
+					"parameters": {
+						"tag": "\"\"",
+						"file": "orderBege.json"
+					}
+				}
+			],
+			"sid": 739562000170845
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 816516150927810,
+					"parameters": {
+						"tag": "\"\""
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text2",
+					"sid": 707366082362501,
+					"parameters": {
+						"instance-variable": "item",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 515391231906511,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text2",
+					"sid": 856917822322726,
+					"parameters": {
+						"text": "JSON.Get(\"namaKedai\")"
+					}
+				}
+			],
+			"sid": 112998210048897,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 211897557846853,
+							"parameters": {
+								"path": "\"menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 996187965969039,
+							"parameters": {
+								"object-to-create": "Sprite9",
+								"layer": "0",
+								"x": "360",
+								"y": "letakList",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 448939227206803,
+							"parameters": {
+								"object": "Sprite11",
+								"layer": "0",
+								"image-point": "1",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Sprite11",
+							"sid": 494366815766755,
+							"parameters": {
+								"frame-number": "JSON.Get(\".gambar\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Sprite11",
+							"sid": 428293736790563,
+							"parameters": {
+								"instance-variable": "item",
+								"value": "JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 557897330946092,
+							"parameters": {
+								"object": "Text4",
+								"layer": "0",
+								"image-point": "2",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text4",
+							"sid": 644557970863112,
+							"parameters": {
+								"text": "JSON.Get(\".nama\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text4",
+							"sid": 114691945731185,
+							"parameters": {
+								"instance-variable": "item",
+								"value": "JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 244115843235158,
+							"parameters": {
+								"object": "SpriteTolak",
+								"layer": "0",
+								"image-point": "3",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 159746230342775,
+							"parameters": {
+								"object": "SpriteTambah",
+								"layer": "0",
+								"image-point": "4",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 790567746082405,
+							"parameters": {
+								"object": "SpriteTengahBG",
+								"layer": "0",
+								"image-point": "5",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 894923595317344,
+							"parameters": {
+								"object": "Text5",
+								"layer": "0",
+								"image-point": "6",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Sprite9",
+							"sid": 299749500089901,
+							"parameters": {
+								"object": "Text9",
+								"layer": "0",
+								"image-point": "7",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "SpriteTolak",
+							"sid": 161765966231780,
+							"parameters": {
+								"instance-variable": "item",
+								"value": "JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "SpriteTambah",
+							"sid": 399192979313853,
+							"parameters": {
+								"instance-variable": "item",
+								"value": "JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text5",
+							"sid": 151577366849753,
+							"parameters": {
+								"instance-variable": "item",
+								"value": "JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text5",
+							"sid": 720142857551183,
+							"parameters": {
+								"text": "\"0\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text9",
+							"sid": 770481799413320,
+							"parameters": {
+								"instance-variable": "item",
+								"value": "JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Text9",
+							"sid": 202072292539836,
+							"parameters": {
+								"instance-variable": "harga",
+								"value": "int(JSON.Get(\".harga\"))"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text9",
+							"sid": 865029942680004,
+							"parameters": {
+								"text": "\"RM\"&JSON.Get(\".harga\")"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 364587159243553,
+							"parameters": {
+								"variable": "letakList",
+								"value": "130"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 843776770152786,
+							"parameters": {
+								"variable": "listCount",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 798883754038531
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Tambah Tolak order"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 614492803250065,
+					"parameters": {
+						"object": "SpriteTambah"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text5",
+					"sid": 703746709221834,
+					"parameters": {
+						"instance-variable": "item",
+						"comparison": 0,
+						"value": "SpriteTambah.item"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text5",
+					"sid": 325033035789960,
+					"parameters": {
+						"text": "int(Self.Text)+1"
+					}
+				}
+			],
+			"sid": 564860686740046
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 359430770466504,
+					"parameters": {
+						"object": "SpriteTolak"
+					}
+				},
+				{
+					"id": "compare-text",
+					"objectClass": "Text5",
+					"sid": 822798286129956,
+					"parameters": {
+						"text-to-compare": "\"0\"",
+						"case-sensitivity": "ignore-case"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text5",
+					"sid": 982385461561615,
+					"parameters": {
+						"instance-variable": "item",
+						"comparison": 0,
+						"value": "SpriteTolak.item"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text5",
+					"sid": 865143969773404,
+					"parameters": {
+						"text": "int(Self.Text)-1"
+					}
+				}
+			],
+			"sid": 242171784753471
+		},
+		{
+			"eventType": "comment",
+			"text": "From MenuList to ConfirmationList"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 513337988509687,
+					"parameters": {
+						"object": "Sprite13"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 375504379066277,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Ada benda yang dibeli"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 701131452216425,
+							"parameters": {
+								"object": "Text5"
+							}
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "Text5",
+							"sid": 305113014638884,
+							"parameters": {
+								"text-to-compare": "\"0\"",
+								"case-sensitivity": "ignore-case"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 827568335463490,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Ada benda"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 328691211322594
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "adaBendaYgDibeli",
+									"sid": 116847853669540
+								}
+							],
+							"sid": 356672666575860
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "vibrator"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 671800791474508,
+					"parameters": {
+						"object": "Sprite10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "vibrate",
+					"objectClass": "Browser",
+					"sid": 717956405099168,
+					"parameters": {
+						"pattern": "\"200,100,200\""
+					}
+				}
+			],
+			"sid": 748483529402554
+		},
+		{
+			"functionName": "adaBendaYgDibeli",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-object",
+					"objectClass": "JSON",
+					"sid": 611569989755049,
+					"parameters": {
+						"path": "\"order\""
+					}
+				},
+				{
+					"id": "set-array",
+					"objectClass": "JSON",
+					"sid": 730997013228364,
+					"parameters": {
+						"path": "\"order\"",
+						"size": "listCount"
+					}
+				},
+				{
+					"id": "set-path",
+					"objectClass": "JSON",
+					"sid": 200742540707481,
+					"parameters": {
+						"path": "\"order\""
+					}
+				}
+			],
+			"sid": 638638071663664,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 432146315548981,
+							"parameters": {
+								"object": "Sprite11"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text4",
+							"sid": 688614234961457,
+							"parameters": {
+								"instance-variable": "item",
+								"comparison": 0,
+								"value": "Sprite11.item"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text5",
+							"sid": 405274186776441,
+							"parameters": {
+								"instance-variable": "item",
+								"comparison": 0,
+								"value": "Sprite11.item"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text9",
+							"sid": 203154695976257,
+							"parameters": {
+								"instance-variable": "item",
+								"comparison": 0,
+								"value": "Sprite11.item"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-object",
+							"objectClass": "JSON",
+							"sid": 571906439669032,
+							"parameters": {
+								"path": "\".\"&Sprite11.item"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "JSON",
+							"sid": 716850133431590,
+							"parameters": {
+								"path": "\".\" & Sprite11.item & \".gambar\"",
+								"value": "Sprite11.AnimationFrame"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "JSON",
+							"sid": 318042105123845,
+							"parameters": {
+								"path": "\".\" & Sprite11.item & \".nama\"",
+								"value": "Text4.Text"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "JSON",
+							"sid": 904630268302873,
+							"parameters": {
+								"path": "\".\" & Sprite11.item & \".value\"",
+								"value": "Text5.Text"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "JSON",
+							"sid": 786668347246474,
+							"parameters": {
+								"path": "\".\" & Sprite11.item & \".harga\"",
+								"value": "Text9.harga"
+							}
+						}
+					],
+					"sid": 589867518888640
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 392693022064021,
+							"parameters": {
+								"layout": "ConfirmationList"
+							}
+						}
+					],
+					"sid": 166210022103833
+				}
+			]
+		}
+	],
+	"sid": 747152024321291
+}
