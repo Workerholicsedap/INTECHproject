@@ -1076,7 +1076,35 @@
 					}
 				}
 			],
-			"sid": 774169074524303
+			"sid": 774169074524303,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "bffd",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [],
+					"sid": 805561229273587
+				},
+				{
+					"eventType": "variable",
+					"name": "jd",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 265290605736779
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 696871261226774,
+					"disabled": true
+				}
+			]
 		}
 	],
 	"sid": 384973601063622
