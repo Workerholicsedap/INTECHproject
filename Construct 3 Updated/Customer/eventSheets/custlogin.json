@@ -1,0 +1,482 @@
+{
+	"name": "CustLogin",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "DefaultThing"
+		},
+		{
+			"eventType": "variable",
+			"name": "LINK",
+			"type": "string",
+			"initialValue": "https://script.google.com/macros/s/AKfycbxMNduPV1wkrugCf2F8WvyompjjSfMU_cr01AXwqyegNgqzccKx-VyGBU2yW5vD8BWH5g/exec",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 673735970905360
+		},
+		{
+			"eventType": "variable",
+			"name": "dahLogin",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 806832168166376
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 493769449514345
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "Sprite12",
+					"sid": 579359749501877,
+					"parameters": {
+						"x": "Self.X + 300"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Sprite12",
+					"sid": 620369780440013,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "Self.X -300",
+						"time": "2",
+						"ease": "easeoutbounce",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "Sprite9",
+					"sid": 809255127046203,
+					"parameters": {
+						"x": "Self.X + 1000"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Sprite9",
+					"sid": 571023317415651,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "Self.X -1000",
+						"time": "1",
+						"ease": "easeoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				}
+			],
+			"sid": 216116082934462,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiledBackground2",
+							"sid": 802719400284873,
+							"parameters": {
+								"instance-variable": "item",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "TiledBackground2",
+							"sid": 768975547686895,
+							"parameters": {
+								"y": "Self.Y - 200"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "TiledBackground2",
+							"sid": 176327026416552,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Self.Y + 200",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 444625679850344
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiledBackground2",
+							"sid": 686034294734082,
+							"parameters": {
+								"instance-variable": "item",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "TiledBackground2",
+							"sid": 476470520028793,
+							"parameters": {
+								"y": "Self.Y + 200"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "TiledBackground2",
+							"sid": 634005976919690,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Self.Y - 200",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 287323074603660
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Login"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 368856215419721,
+					"parameters": {
+						"object": "Sprite6"
+					}
+				},
+				{
+					"id": "compare-text",
+					"objectClass": "TextInput",
+					"sid": 576792536779512,
+					"parameters": {
+						"text": "\"\"",
+						"case": "case-insensitive"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-text",
+					"objectClass": "TextInput2",
+					"sid": 715889049216012,
+					"parameters": {
+						"text": "\"\"",
+						"case": "case-insensitive"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "textdebuggg",
+					"sid": 890999075442899,
+					"parameters": {
+						"text": "\"Processing to Server...\""
+					}
+				},
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 997019980279576,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TextInput.Text) & \"&pass=\" & URLEncode(TextInput2.Text) & \"&req=login\"",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 373204176082301
+		},
+		{
+			"eventType": "comment",
+			"text": "Insert Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button3",
+					"sid": 970015690817879
+				}
+			],
+			"actions": [
+				{
+					"id": "post-to-url",
+					"objectClass": "AJAX",
+					"sid": 323949317721437,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK",
+						"data": "\"id=\" & URLEncode(TextBox5.Text) & \"&data=\" & URLEncode(TextBox6.Text) ",
+						"method": "\"POST\""
+					}
+				}
+			],
+			"sid": 726350497041400
+		},
+		{
+			"eventType": "comment",
+			"text": "Get Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button4",
+					"sid": 139953801608909
+				}
+			],
+			"actions": [
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 458416276752558,
+					"parameters": {
+						"tag": "\"\"",
+						"url": "LINK&\"?id=\" & TextBox7.Text"
+					}
+				}
+			],
+			"sid": 224617044143444
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-completed",
+					"objectClass": "AJAX",
+					"sid": 275363157586315
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 883281728688501,
+					"disabled": true,
+					"parameters": {
+						"text": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 300000074268012,
+					"parameters": {
+						"path": "\"data\"",
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 852996353395983,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 195056048694495,
+							"parameters": {
+								"path": "\"data.status\"",
+								"cmp": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 279006199236444,
+							"parameters": {
+								"text": "\"Success Login!\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 214540327816758,
+							"parameters": {
+								"variable": "dahLogin",
+								"value": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 798059015798422,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 881630284320158,
+							"parameters": {
+								"layout": "QRScanner"
+							}
+						}
+					],
+					"sid": 957328374461092
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 975217163360144
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 506122172405613,
+							"parameters": {
+								"path": "\"data.status\"",
+								"cmp": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "textdebuggg",
+							"sid": 373991647373443,
+							"parameters": {
+								"text": "\"Wrong email and password combination :(\""
+							}
+						}
+					],
+					"sid": 917914546485703
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-error",
+					"objectClass": "AJAX",
+					"sid": 892353000046386
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextDebug",
+					"sid": 596374967686312,
+					"parameters": {
+						"text": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 362708654162407
+		},
+		{
+			"eventType": "comment",
+			"text": "Go to registration form"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 539186594127065,
+					"parameters": {
+						"object": "Text3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 487533475117413,
+					"parameters": {
+						"layout": "Register"
+					}
+				}
+			],
+			"sid": 854346879362000
+		},
+		{
+			"eventType": "comment",
+			"text": "From QRScanner, to MenuList"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 189941667401946,
+					"parameters": {
+						"object": "Sprite8"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 681422262332223,
+					"parameters": {
+						"layout": "QRScanner2"
+					}
+				}
+			],
+			"sid": 728719607556434
+		}
+	],
+	"sid": 318612488394208
+}

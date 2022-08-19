@@ -1,0 +1,107 @@
+{
+	"name": "Sprite9",
+	"plugin-id": "Sprite",
+	"sid": 896187652042251,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 474181741826264
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 872,
+						"height": 136,
+						"originX": 0.5,
+						"originY": 0.5147058823529411,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1114317,
+						"collisionPoly": {
+							"points": [
+								0.0011467889908256881,
+								0,
+								0.9988532110091743,
+								0,
+								0.9988532110091743,
+								1,
+								0.0011467889908256881,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "gambar",
+								"x": 0.10435779816513761,
+								"y": 0.5147058823529411
+							},
+							{
+								"name": "tulisan",
+								"x": 0.20642201834862386,
+								"y": 0.14705882352941177
+							},
+							{
+								"name": "tolak",
+								"x": 0.7110091743119266,
+								"y": 0.5147058823529411
+							},
+							{
+								"name": "tambah",
+								"x": 0.9403669724770642,
+								"y": 0.5147058823529411
+							},
+							{
+								"name": "tengah",
+								"x": 0.8256880733944955,
+								"y": 0.5147058823529411
+							},
+							{
+								"name": "tengahTulisan",
+								"x": 0.8256880733944955,
+								"y": 0.5147058823529411
+							},
+							{
+								"name": "harga",
+								"x": 0.20642201834862386,
+								"y": 0.5735294117647058
+							},
+							{
+								"name": "tulisan-2",
+								"x": 0.20642201834862386,
+								"y": 0.36764705882352944
+							},
+							{
+								"name": "tengah-2",
+								"x": 0.7339449541284404,
+								"y": 0.5147058823529411
+							},
+							{
+								"name": "harga-2",
+								"x": 0.8337155963302753,
+								"y": 0.36764705882352944
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 896198693438335,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
