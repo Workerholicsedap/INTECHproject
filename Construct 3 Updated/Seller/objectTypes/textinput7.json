@@ -1,0 +1,14 @@
+{
+	"name": "TextInput7",
+	"plugin-id": "TextBox",
+	"sid": 840343859911031,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 267142634648972
+		}
+	]
+}

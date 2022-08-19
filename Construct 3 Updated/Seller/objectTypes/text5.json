@@ -1,0 +1,15 @@
+{
+	"name": "Text5",
+	"plugin-id": "Text",
+	"sid": 411582644067030,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 240986529619517
+		}
+	],
+	"effectTypes": []
+}

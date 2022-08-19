@@ -1,0 +1,14 @@
+{
+	"name": "TextInput6",
+	"plugin-id": "TextBox",
+	"sid": 233397192008633,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 431397475243011
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"name": "Text4",
+	"plugin-id": "Text",
+	"sid": 352539310150890,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 682719516619399
+		}
+	],
+	"effectTypes": []
+}

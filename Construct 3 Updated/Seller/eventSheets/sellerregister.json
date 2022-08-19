@@ -1,0 +1,513 @@
+{
+	"name": "sellerRegister",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 388895591418329
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text4",
+					"sid": 347059897543126,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text",
+					"sid": 447023905569657,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput",
+					"sid": 200201822692710,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite7",
+					"sid": 683681638557610,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 283271715541728,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text4",
+					"sid": 196546821879267,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite7",
+					"sid": 729026022746739,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 552278072268892,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput2",
+					"sid": 623076168504675,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite7",
+					"sid": 120860776639421,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 493069345371958,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput3",
+					"sid": 584740952706792,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite5",
+					"sid": 206425828446660,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 321104507206866,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput4",
+					"sid": 463613449475718,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite5",
+					"sid": 193727587203098,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 490042421640733,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput5",
+					"sid": 468618675028878,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite5",
+					"sid": 399805597153290,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite2",
+					"sid": 661764473449274,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 299420218674904,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput6",
+					"sid": 416211575139034,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite",
+					"sid": 989478604199461,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 396156035347542,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "TextInput7",
+					"sid": 259359895455389,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Sprite30",
+					"sid": 470271404532245,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text2",
+					"sid": 921023643063562,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text3",
+					"sid": 275315919281357,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Sprite46",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				}
+			],
+			"sid": 906218153665624
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Sprite46",
+					"sid": 214211059809715,
+					"parameters": {
+						"comparison": 4,
+						"y-co-ordinate": "100"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-y",
+					"objectClass": "Sprite46",
+					"sid": 765046289574404,
+					"parameters": {
+						"y": "100"
+					}
+				}
+			],
+			"sid": 884235717564555
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Sprite46",
+					"sid": 309645305948291,
+					"parameters": {
+						"comparison": 2,
+						"y-co-ordinate": "-46"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-y",
+					"objectClass": "Sprite46",
+					"sid": 453981151102153,
+					"parameters": {
+						"y": "-46"
+					}
+				}
+			],
+			"sid": 330344119864155
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 648559458462566,
+					"parameters": {
+						"object": "Text3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 399733290654782,
+					"parameters": {
+						"layout": "Login"
+					}
+				}
+			],
+			"sid": 910811213981967
+		}
+	],
+	"sid": 307538416397723
+}
