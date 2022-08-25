@@ -1,6 +1,6 @@
 
 Link : 
-https://script.google.com/macros/s/AKfycbwr4tH89xTsJgX1iFLZDryPC03EQu3zFj8BZQRGyTQQRWye3FfdOZY3S8_ktjVVob2YzQ/exec
+https://script.google.com/macros/s/AKfycbzNUYASI7XZR77iw97R2pgYhXHrmIGBN8vxrPu1TgvuUcLE-BuEuBtUCrnd5aUbacTlqQ/exec
 
 Spreadsheet Link:
 https://docs.google.com/spreadsheets/d/1oXo17KYNIdOhQ_9BfzV7wNWh7OFRmlcC31PfaOsu8JE/edit?usp=sharing
@@ -19,6 +19,9 @@ POST Data:
 
 	3. Register & Insert Data
 	<link>?id=afwan&pass=123&data=ayamikanudang&req=register
+
+	4. Request website
+	<link>?req=website&website=www.odabege.com
 
 Return data :
 	result = <desc result?
