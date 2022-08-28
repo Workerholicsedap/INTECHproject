@@ -3786,6 +3786,214 @@ y,size,opacity);else if(forceQuads||scaledSize>renderer.GetMaxPointSize()||scale
 }
 
 {
+'use strict';{const C3=self.C3;const DOM_COMPONENT_ID="user-media";C3.Plugins.UserMedia=class UserMediaPlugin extends C3.SDKDOMPluginBase{constructor(opts){super(opts,DOM_COMPONENT_ID);this._lastStateSequenceNumber=-1;this._videoState=new Map;this.AddElementMessageHandler("video-ready",(sdkInst,e)=>sdkInst._OnVideoReady(e));this._runtime.AddDOMComponentMessageHandler(DOM_COMPONENT_ID,"state",e=>this._OnUpdateState(e))}Release(){super.Release()}_OnUpdateState(stateData){const sequenceNumber=stateData["sequenceNumber"];
+if(sequenceNumber<=this._lastStateSequenceNumber)return;this._lastStateSequenceNumber=sequenceNumber;this._videoState.clear();for(const [idStr,o]of Object.entries(stateData["videoData"]))this._videoState.set(parseInt(idStr,10),o)}_DeleteVideoState(elementId){this._videoState.delete(elementId)}GetVideoState(elementId){return this._videoState.get(elementId)||null}}}{const C3=self.C3;C3.Plugins.UserMedia.Type=class UserMediaType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}}
+{const C3=self.C3;const DOM_COMPONENT_ID="user-media";const tempRect=C3.New(C3.Rect);const tempQuad=C3.New(C3.Quad);C3.Plugins.UserMedia.Instance=class UserMediaInstance extends C3.SDKDOMInstanceBase{constructor(inst,properties){super(inst,DOM_COMPONENT_ID);this._videoSources=[];this._audioSources=[];this._isRequesting=false;this._isVideoReady=false;this._isVideoActive=false;this._videoWidth=0;this._videoHeight=0;this._snapshotUrl="";const rt=this._runtime.Dispatcher();this._disposables=new C3.CompositeDisposable(C3.Disposable.From(rt,
+"webglcontextlost",()=>this._OnWebGLContextLost()));this.CreateElement();this._StartTicking()}Release(){this.GetPlugin()._DeleteVideoState(this.GetElementId());this._ReleaseTexture();super.Release()}_MaybeCreateTexture(renderer,w,h){if(this._webGLTexture)if(this._webGLTexture.GetWidth()===w||this._webGLTexture.GetHeight()===h)return;else this._ReleaseTexture();this._webGLTexture=renderer.CreateDynamicTexture(w,h,{sampling:this._runtime.GetSampling(),mipMap:false})}_ReleaseTexture(){if(!this._webGLTexture)return;
+this._runtime.GetRenderer().DeleteTexture(this._webGLTexture);this._webGLTexture=null}GetElementState(){return{}}_OnWebGLContextLost(){this._webGLTexture=null}_OnVideoReady(e){if(this._isVideoActive){this._isVideoReady=true;this._videoWidth=e["width"];this._videoHeight=e["height"]}}Draw(renderer){const wi=this.GetWorldInfo();renderer.SetColorFillMode();renderer.SetColorRgba(0,0,0,1);renderer.Quad(wi.GetBoundingQuad());renderer.SetTextureFillMode();renderer.ResetColor();if(!this._isVideoActive||!this._isVideoReady)return;
+let videoWidth=0;let videoHeight=0;let textureData=null;if(this._runtime.IsInWorker()){const state=this.GetMyState();if(!state)return;const imageBitmap=state["imageBitmap"];if(!imageBitmap)return;videoWidth=imageBitmap.width;videoHeight=imageBitmap.height;textureData=imageBitmap}else{const videoElem=self["C3UserMedia_GetVideoElement"](this.GetElementId());if(!videoElem)return;videoWidth=videoElem.videoWidth;videoHeight=videoElem.videoHeight;if(videoWidth<=0||videoHeight<=0)return;textureData=videoElem}this._MaybeCreateTexture(renderer,
+videoWidth,videoHeight);renderer.UpdateTexture(textureData,this._webGLTexture);const videoAspect=videoWidth/videoHeight;const dispWidth=wi.GetWidth();const dispHeight=wi.GetHeight();const dispAspect=dispWidth/dispHeight;let offX=0;let offY=0;let drawWidth=0;let drawHeight=0;if(dispAspect>videoAspect){drawWidth=dispHeight*videoAspect;drawHeight=dispHeight;offX=Math.max(Math.floor((dispWidth-drawWidth)/2),0)}else{drawWidth=dispWidth;drawHeight=dispWidth/videoAspect;offY=Math.max(Math.floor((dispHeight-
+drawHeight)/2),0)}renderer.SetTexture(this._webGLTexture);tempRect.setWH(wi.GetX()+offX,wi.GetY()+offY,drawWidth,drawHeight);tempQuad.setFromRect(tempRect);renderer.Quad(tempQuad)}Tick(){if(this._isVideoActive&&this._isVideoReady){this._runtime.UpdateRender();const state=this.GetMyState();if(state){this._videoWidth=state["width"];this._videoHeight=state["height"]}}}GetMyState(){return this.GetPlugin().GetVideoState(this.GetElementId())}}}
+{const C3=self.C3;C3.Plugins.UserMedia.Cnds={OnApproved(){return true},OnDeclined(){return true},OnMediaSources(){return true},OnSnapshot(){return true},SupportsUserMedia(){return true},SupportsSpeechRecognition(){return false},OnSpeechRecognitionStart(){return true},OnSpeechRecognitionEnd(){return true},OnSpeechRecognitionError(){return true},OnSpeechRecognitionResult(){return true},IsRecognisingSpeech(){return false},OnDeviceLight(){return true},SupportsSpeechSynthesis(){return false},IsSpeaking(){return false},
+OnCanvasRecordingReady(){return true},SupportsCanvasRecording(){return false},IsCanvasRecordFormatSupported(){return false}}}
+{const C3=self.C3;C3.Plugins.UserMedia.Acts={async RequestCamera(sourceIndex,preferredDirection,preferredWidth,preferredHeight,includeMic,micSourceIndex){if(this._isRequesting)return;this._isRequesting=true;sourceIndex=Math.floor(sourceIndex);preferredWidth=Math.floor(preferredWidth);preferredHeight=Math.floor(preferredHeight);const constraints={"video":{}};if(sourceIndex>=0&&sourceIndex<this._videoSources.length){const videoDeviceId=this._videoSources[sourceIndex]["deviceId"];if(videoDeviceId)constraints["video"]["deviceId"]=
+{"exact":videoDeviceId}}if(preferredDirection>0)constraints["video"]["facingMode"]={"ideal":preferredDirection===1?"user":"environment"};if(preferredWidth>0&&preferredHeight>0){constraints["video"]["width"]=preferredWidth;constraints["video"]["height"]=preferredHeight}if(includeMic){constraints["audio"]={};if(micSourceIndex>=0&&micSourceIndex<this._audioSources.length){const audioDeviceId=this._audioSources[micSourceIndex]["deviceId"];if(audioDeviceId)constraints["audio"]["deviceId"]={"exact":audioDeviceId}}}const result=
+await this.PostToDOMElementAsync("request-camera",{"constraints":constraints});this._isRequesting=false;if(result["ok"]){this._isVideoActive=true;this._isVideoReady=false;await this.TriggerAsync(C3.Plugins.UserMedia.Cnds.OnApproved)}else await this.TriggerAsync(C3.Plugins.UserMedia.Cnds.OnDeclined)},async RequestMic(tag,sourceIndex){if(this._isRequesting)return;this._isRequesting=true;sourceIndex=Math.floor(sourceIndex);const constraints={"audio":{}};if(sourceIndex>=0&&sourceIndex<this._audioSources.length){const audioDeviceId=
+this._audioSources[sourceIndex]["deviceId"];if(audioDeviceId)constraints["audio"]["deviceId"]={"exact":audioDeviceId}}const result=await this.PostToDOMElementAsync("request-microphone",{"constraints":constraints,"tag":tag});this._isRequesting=false;if(result["ok"])await this.TriggerAsync(C3.Plugins.UserMedia.Cnds.OnApproved);else await this.TriggerAsync(C3.Plugins.UserMedia.Cnds.OnDeclined)},Stop(){this._isVideoActive=false;this._isVideoReady=false;this._videoWidth=0;this._videoHeight=0;this.PostToDOMElement("stop");
+this._runtime.UpdateRender()},async Snapshot(format,quality){const result=await this.PostToDOMElementAsync("snapshot",{"format":format===0?"image/png":"image.jpeg","quality":quality/100});this._snapshotUrl=result["snapshotUrl"];await this.TriggerAsync(C3.Plugins.UserMedia.Cnds.OnSnapshot)},async GetMediaSources(){const result=await this.PostToDOMAsync("get-media-sources");this._videoSources=result["videoSources"];this._audioSources=result["audioSources"];await this.TriggerAsync(C3.Plugins.UserMedia.Cnds.OnMediaSources)},
+RequestSpeechRecognition(lang,mode,results){},StepSpeechRecognition(){},SpeakText(text,lang,uri,vol,rate,pitch){},StopSpeaking(){},PauseSpeaking(){},ResumeSpeaking(){},StartRecordingCanvas(){},StopRecordingCanvas(){}}}
+{const C3=self.C3;C3.Plugins.UserMedia.Exps={VideoWidth(){return this._videoWidth},VideoHeight(){return this._videoHeight},SnapshotURL(){return this._snapshotUrl},AudioSourceCount(){return this._audioSources.length},AudioSourceLabelAt(i){i=Math.floor(i);if(i<0||i>=this._audioSources.length)return"";return this._audioSources[i]["label"]},CameraSourceCount(){return this._videoSources.length},CameraSourceLabelAt(i){i=Math.floor(i);if(i<0||i>=this._videoSources.length)return"";return this._videoSources[i]["label"]},
+CameraSourceFacingAt(i){i=Math.floor(i);if(i<0||i>=this._videoSources.length)return"";return this._videoSources[i]["facing"]},FinalTranscript(){return""},InterimTranscript(){return""},SpeechError(){return""},AmbientLux(){return 0},VoiceCount(){return 0},VoiceNameAt(){return""},VoiceLangAt(){return""},VoiceURIAt(){return""},CanvasRecordingURL(){return""}}};
+
+}
+
+{
+"use strict";
+{
+    const C3 = self.C3;
+    const DOM_COMPONENT_ID = "sparsha-qrcodeplugin";
+
+    C3.Plugins.Sparsha_qrCode = class qrCodePlugin extends C3.SDKPluginBase
+    {
+        constructor(opts)
+        {
+            super(opts, DOM_COMPONENT_ID);
+        }
+
+        Release()
+        {
+            super.Release();
+        }
+    };
+}
+}
+
+{
+"use strict";
+{
+    const C3 = self.C3;
+    C3.Plugins.Sparsha_qrCode.Type = class qrCodeType extends C3.SDKTypeBase
+    {
+        constructor(objectClass)
+        {
+            super(objectClass);
+        }
+
+        Release()
+        {
+            super.Release();
+        }
+
+        OnCreate()
+        {}
+    };
+}
+}
+
+{
+"use strict";
+{
+    const C3 = self.C3;
+    const DOM_COMPONENT_ID = "sparsha_qrdom";
+
+    C3.Plugins.Sparsha_qrCode.Instance = class qrCodeInstance extends C3.SDKInstanceBase
+    {
+        constructor(inst, properties)
+        {
+            super(inst, DOM_COMPONENT_ID);
+            if (properties)
+            {}
+
+            this.genImgURI = "";
+            this.scanData = "";
+
+            this.PluginCnds = C3.Plugins.Sparsha_qrCode.Cnds;
+        }
+
+        Release()
+        {
+            super.Release();
+        }
+
+        SaveToJson()
+        {
+            return {
+                // data to be saved for savegames
+            };
+        }
+
+        LoadFromJson(o)
+        {
+            // load state for savegames
+        }
+
+        GetDebuggerProperties()
+        {
+            return [
+            {
+                title: "qrCode",
+                properties: [
+                        //{name: ".current-animation",	value: this._currentAnimation.GetName(),	onedit: v => this.CallAction(Acts.SetAnim, v, 0) },
+                    ]
+            }];
+        }
+    };
+}
+}
+
+{
+"use strict";
+{
+    self.C3.Plugins.Sparsha_qrCode.Cnds = {
+        OnRead()
+        {
+            return true
+        },
+
+        OnError()
+        {
+            return true
+        },
+
+        OnGenerated()
+        {
+            return true;
+        }
+    };
+}
+}
+
+{
+"use strict";
+{
+    self.C3.Plugins.Sparsha_qrCode.Acts = {
+        async ReadQr(url)
+        {
+            var options_DOM = {
+                "action": "scan",
+                "url": url,
+            };
+            var res = await this.PostToDOMAsync("domAsync_sparsha_qrcode", options_DOM);
+            if (res["result"] !== undefined)
+            {
+                this.scanData = res["result"];
+                this.Trigger(this.PluginCnds.OnRead);
+            }
+            else
+            {
+                this.Trigger(this.PluginCnds.OnError);
+            }
+        },
+
+        async CreateQr(mytext, size, radius, colordark, colorlight, corlvl)
+        {
+            var corLevelName = ["L", "M", "Q", "H"];
+            if (colorlight === "") colorlight = null;
+            var options_DOM = {
+                "action": "generate",
+                "mytext": mytext,
+                "size": size,
+                "radius": radius,
+                "colordark": colordark,
+                "colorlight": colorlight,
+                "correctlevel": corLevelName[corlvl],
+            };
+            var res = await this.PostToDOMAsync("domAsync_sparsha_qrcode", options_DOM);
+            this.genImgURI = res["result"];
+            this.Trigger(this.PluginCnds.OnGenerated);
+        }
+    };
+}
+}
+
+{
+"use strict";
+{
+    self.C3.Plugins.Sparsha_qrCode.Exps = {
+        data()
+        {
+            return this.scanData;
+        },
+
+        qrURL()
+        {
+            return this.genImgURI;
+        },
+
+        getQR_URL()
+        {
+            return this.genImgURI;
+        },
+
+        getQrURL(size, data)
+        {
+            return ("https://chart.googleapis.com/chart?cht=qr&chs=" + size + "&chl=" + data + "&chld=L|1");
+        }
+    };
+}
+}
+
+{
 'use strict';{const C3=self.C3;C3.Behaviors.Fade=class FadeBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Behaviors.Fade.Type=class FadeType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}}
 {const C3=self.C3;const FADE_IN_TIME=0;const WAIT_TIME=1;const FADE_OUT_TIME=2;const DESTROY=3;const ACTIVE_AT_START=4;C3.Behaviors.Fade.Instance=class FadeInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._fadeInTime=0;this._waitTime=0;this._fadeOutTime=0;this._destroy=true;this._activeAtStart=true;this._setMaxOpacity=false;this._stage=0;this._stageTime=C3.New(C3.KahanSum);this._maxOpacity=this._inst.GetWorldInfo().GetOpacity()||1;if(properties){this._fadeInTime=
 properties[FADE_IN_TIME];this._waitTime=properties[WAIT_TIME];this._fadeOutTime=properties[FADE_OUT_TIME];this._destroy=!!properties[DESTROY];this._activeAtStart=!!properties[ACTIVE_AT_START];this._stage=this._activeAtStart?0:3}if(this._activeAtStart)if(this._fadeInTime===0){this._stage=1;if(this._waitTime===0)this._stage=2}else{this._inst.GetWorldInfo().SetOpacity(0);this._runtime.UpdateRender()}this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"fit":this._fadeInTime,"wt":this._waitTime,
@@ -3879,6 +4087,31 @@ for(const propertyTypeFunctionObject of TYPE_CHECK_OBJECTS)if(propertyTypeFuncti
 }
 
 {
+'use strict';{const C3=self.C3;C3.Behaviors.Sin=class SinBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Behaviors.Sin.Type=class SinType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}}
+{const C3=self.C3;const C3X=self.C3X;const IBehaviorInstance=self.IBehaviorInstance;const MOVEMENT=0;const WAVE=1;const PERIOD=2;const PERIOD_RANDOM=3;const PERIOD_OFFSET=4;const PERIOD_OFFSET_RANDOM=5;const MAGNITUDE=6;const MAGNITUDE_RANDOM=7;const ENABLE=8;const HORIZONTAL=0;const VERTICAL=1;const SIZE=2;const WIDTH=3;const HEIGHT=4;const ANGLE=5;const OPACITY=6;const VALUE=7;const FORWARDS_BACKWARDS=8;const ZELEVATION=9;const SINE=0;const TRIANGLE=1;const SAWTOOTH=2;const REVERSE_SAWTOOTH=3;const SQUARE=
+4;const _2pi=2*Math.PI;const _pi_2=Math.PI/2;const _3pi_2=3*Math.PI/2;const MOVEMENT_LOOKUP=[0,1,8,3,4,2,5,6,9,7];C3.Behaviors.Sin.Instance=class SinInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._i=0;this._movement=0;this._wave=0;this._period=0;this._mag=0;this._isEnabled=true;this._basePeriod=0;this._basePeriodOffset=0;this._baseMag=0;this._periodRandom=0;this._periodOffsetRandom=0;this._magnitudeRandom=0;this._initialValue=0;this._initialValue2=
+0;this._lastKnownValue=0;this._lastKnownValue2=0;this._ratio=0;if(properties){this._movement=MOVEMENT_LOOKUP[properties[MOVEMENT]];this._wave=properties[WAVE];this._periodRandom=this._runtime.Random()*properties[PERIOD_RANDOM];this._basePeriod=properties[PERIOD];this._period=properties[PERIOD];this._period+=this._periodRandom;this._basePeriodOffset=properties[PERIOD_OFFSET];if(this._period!==0){this._periodOffsetRandom=this._runtime.Random()*properties[PERIOD_OFFSET_RANDOM];this._i=properties[PERIOD_OFFSET]/
+this._period*_2pi;this._i+=this._periodOffsetRandom/this._period*_2pi}this._magnitudeRandom=this._runtime.Random()*properties[MAGNITUDE_RANDOM];this._baseMag=properties[MAGNITUDE];this._mag=properties[MAGNITUDE];this._mag+=this._magnitudeRandom;this._isEnabled=!!properties[ENABLE]}if(this._movement===ANGLE)this._mag=C3.toRadians(this._mag);this.Init();if(this._isEnabled)this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"i":this._i,"e":this._isEnabled,"mv":this._movement,"w":this._wave,
+"p":this._period,"mag":this._mag,"iv":this._initialValue,"iv2":this._initialValue2,"r":this._ratio,"lkv":this._lastKnownValue,"lkv2":this._lastKnownValue2}}LoadFromJson(o){this._i=o["i"];this._SetEnabled(o["e"]);this._movement=o["mv"];this._wave=o["w"];this._period=o["p"];this._mag=o["mag"];this._initialValue=o["iv"];this._initialValue2=o["iv2"];this._ratio=o["r"];this._lastKnownValue=o["lkv"];this._lastKnownValue2=o["lkv2"]}Init(){const wi=this._inst.GetWorldInfo();switch(this._movement){case HORIZONTAL:this._initialValue=
+wi.GetX();break;case VERTICAL:this._initialValue=wi.GetY();break;case SIZE:this._initialValue=wi.GetWidth();this._ratio=wi.GetHeight()/wi.GetWidth();break;case WIDTH:this._initialValue=wi.GetWidth();break;case HEIGHT:this._initialValue=wi.GetHeight();break;case ANGLE:this._initialValue=wi.GetAngle();break;case OPACITY:this._initialValue=wi.GetOpacity();break;case VALUE:this._initialValue=0;break;case FORWARDS_BACKWARDS:this._initialValue=wi.GetX();this._initialValue2=wi.GetY();break;case ZELEVATION:this._initialValue=
+wi.GetZElevation();break;default:}this._lastKnownValue=this._initialValue;this._lastKnownValue2=this._initialValue2}WaveFunc(x){x=x%_2pi;switch(this._wave){case SINE:return Math.sin(x);case TRIANGLE:if(x<=_pi_2)return x/_pi_2;else if(x<=_3pi_2)return 1-2*(x-_pi_2)/Math.PI;else return(x-_3pi_2)/_pi_2-1;case SAWTOOTH:return 2*x/_2pi-1;case REVERSE_SAWTOOTH:return-2*x/_2pi+1;case SQUARE:return x<Math.PI?-1:1}return 0}Tick(){const dt=this._runtime.GetDt(this._inst);if(!this._isEnabled||dt===0)return;
+if(this._period===0)this._i=0;else this._i=(this._i+dt/this._period*_2pi)%_2pi;this._UpdateFromPhase()}_UpdateFromPhase(){const wi=this._inst.GetWorldInfo();switch(this._movement){case HORIZONTAL:if(wi.GetX()!==this._lastKnownValue)this._initialValue+=wi.GetX()-this._lastKnownValue;wi.SetX(this._initialValue+this.WaveFunc(this._i)*this._mag);this._lastKnownValue=wi.GetX();break;case VERTICAL:if(wi.GetY()!==this._lastKnownValue)this._initialValue+=wi.GetY()-this._lastKnownValue;wi.SetY(this._initialValue+
+this.WaveFunc(this._i)*this._mag);this._lastKnownValue=wi.GetY();break;case SIZE:wi.SetWidth(this._initialValue+this.WaveFunc(this._i)*this._mag);wi.SetHeight(wi.GetWidth()*this._ratio);break;case WIDTH:wi.SetWidth(this._initialValue+this.WaveFunc(this._i)*this._mag);break;case HEIGHT:wi.SetHeight(this._initialValue+this.WaveFunc(this._i)*this._mag);break;case ANGLE:if(wi.GetAngle()!==this._lastKnownValue)this._initialValue=C3.clampAngle(this._initialValue+(wi.GetAngle()-this._lastKnownValue));wi.SetAngle(this._initialValue+
+this.WaveFunc(this._i)*this._mag);this._lastKnownValue=wi.GetAngle();break;case OPACITY:wi.SetOpacity(this._initialValue+this.WaveFunc(this._i)*this._mag/100);break;case FORWARDS_BACKWARDS:if(wi.GetX()!==this._lastKnownValue)this._initialValue+=wi.GetX()-this._lastKnownValue;if(wi.GetY()!==this._lastKnownValue2)this._initialValue2+=wi.GetY()-this._lastKnownValue2;wi.SetX(this._initialValue+Math.cos(wi.GetAngle())*this.WaveFunc(this._i)*this._mag);wi.SetY(this._initialValue2+Math.sin(wi.GetAngle())*
+this.WaveFunc(this._i)*this._mag);this._lastKnownValue=wi.GetX();this._lastKnownValue2=wi.GetY();break;case ZELEVATION:wi.SetZElevation(this._initialValue+this.WaveFunc(this._i)*this._mag);break}wi.SetBboxChanged()}_OnSpriteFrameChanged(prevFrame,nextFrame){}_SetPeriod(x){this._period=x}_GetPeriod(){return this._period}_SetMagnitude(x){this._mag=x}_SetMagnitude_ConvertAngle(x){if(this._movement===5)x=C3.toRadians(x);this._SetMagnitude(x)}_GetMagnitude(){return this._mag}_GetMagnitude_ConvertAngle(){let m=
+this._GetMagnitude();if(this._movement===5)m=C3.toDegrees(m);return m}_SetMovement(m){if(this._movement===5&&m!==5)this._mag=C3.toDegrees(this._mag);this._movement=m;this.Init()}_GetMovement(){return this._movement}_SetWave(w){this._wave=w}_GetWave(){return this._wave}_SetPhase(x){this._i=C3.clamp(x,0,Math.PI*2);this._UpdateFromPhase()}_GetPhase(){return this._i}_SetEnabled(e){this._isEnabled=!!e;if(this._isEnabled)this._StartTicking();else this._StopTicking()}_IsEnabled(){return this._isEnabled}GetPropertyValueByIndex(index){switch(index){case MOVEMENT:return this._movement;
+case WAVE:return this._wave;case PERIOD:return this._basePeriod;case MAGNITUDE:return this._baseMag;case ENABLE:return this._isEnabled}}SetPropertyValueByIndex(index,value){switch(index){case MOVEMENT:this._movement=MOVEMENT_LOOKUP[value];this.Init();break;case WAVE:this._wave=value;break;case PERIOD:this._basePeriod=value;this._period=this._basePeriod+this._periodRandom;if(!this._isEnabled)if(this._period!==0){this._i=this._basePeriodOffset/this._period*_2pi;this._i+=this._periodOffsetRandom/this._period*
+_2pi}else this._i=0;break;case MAGNITUDE:this._baseMag=value;this._mag=this._baseMag+this._magnitudeRandom;if(this._movement===ANGLE)this._mag=C3.toRadians(this._mag);break;case ENABLE:this._isEnabled=!!value;break}}GetDebuggerProperties(){const prefix="behaviors.sin";return[{title:"$"+this.GetBehaviorType().GetName(),properties:[{name:prefix+".properties.enabled.name",value:this._IsEnabled(),onedit:v=>this._SetEnabled(v)},{name:prefix+".properties.period.name",value:this._GetPeriod(),onedit:v=>this._SetPeriod(v)},
+{name:prefix+".properties.magnitude.name",value:this._GetMagnitude_ConvertAngle(),onedit:v=>this._SetMagnitude_ConvertAngle(v)},{name:prefix+".debugger.value",value:this.WaveFunc(this._GetPhase())*this._GetMagnitude_ConvertAngle()}]}]}GetScriptInterfaceClass(){return self.ISineBehaviorInstance}};const map=new WeakMap;const VALID_MOVEMENTS=["horizontal","vertical","size","width","height","angle","opacity","value-only","forwards-backwards","z-elevation"];const VALID_WAVES=["sine","triangle","sawtooth",
+"reverse-sawtooth","square"];self.ISineBehaviorInstance=class ISineBehaviorInstance extends IBehaviorInstance{constructor(){super();map.set(this,IBehaviorInstance._GetInitInst().GetSdkInstance())}set period(x){C3X.RequireFiniteNumber(x);map.get(this)._SetPeriod(x)}get period(){return map.get(this)._GetPeriod()}set magnitude(m){C3X.RequireFiniteNumber(m);map.get(this)._SetMagnitude(m)}get magnitude(){return map.get(this)._GetMagnitude()}set phase(p){map.get(this)._SetPhase(p)}get phase(){return map.get(this)._GetPhase()}set movement(m){C3X.RequireString(m);
+const i=VALID_MOVEMENTS.indexOf(m);if(i===-1)throw new Error("invalid movement");map.get(this)._SetMovement(i)}get movement(){return VALID_MOVEMENTS[map.get(this)._GetMovement()]}set wave(w){C3X.RequireString(w);const i=VALID_WAVES.indexOf(w);if(i===-1)throw new Error("invalid wave");map.get(this)._SetWave(i)}get wave(){return VALID_WAVES[map.get(this)._GetWave()]}get value(){const inst=map.get(this);return inst.WaveFunc(inst._GetPhase())*inst._GetMagnitude()}updateInitialState(){map.get(this).Init()}set isEnabled(e){map.get(this)._SetEnabled(!!e)}get isEnabled(){return map.get(this)._IsEnabled()}}}
+{const C3=self.C3;C3.Behaviors.Sin.Cnds={IsEnabled(){return this._IsEnabled()},CompareMovement(m){return this._GetMovement()===m},ComparePeriod(cmp,v){return C3.compare(this._GetPeriod(),cmp,v)},CompareMagnitude(cmp,v){return C3.compare(this._GetMagnitude_ConvertAngle(),cmp,v)},CompareWave(w){return this._GetWave()===w}}}
+{const C3=self.C3;C3.Behaviors.Sin.Acts={SetEnabled(e){this._SetEnabled(e!==0)},SetPeriod(x){this._SetPeriod(x)},SetMagnitude(x){this._SetMagnitude_ConvertAngle(x)},SetMovement(m){this._SetMovement(m)},SetWave(w){this._wave=w},SetPhase(x){const _2pi=Math.PI*2;this._SetPhase(x*_2pi%_2pi)},UpdateInitialState(){this.Init()}}}
+{const C3=self.C3;C3.Behaviors.Sin.Exps={CyclePosition(){return this._GetPhase()/(2*Math.PI)},Period(){return this._GetPeriod()},Magnitude(){return this._GetMagnitude_ConvertAngle()},Value(){return this.WaveFunc(this._GetPhase())*this._GetMagnitude_ConvertAngle()}}};
+
+}
+
+{
 const C3 = self.C3;
 self.C3_GetObjectRefTable = function () {
 	return [
@@ -3895,6 +4128,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json,
 		C3.Plugins.Browser,
 		C3.Plugins.Particles,
+		C3.Plugins.UserMedia,
+		C3.Behaviors.Sin,
+		C3.Plugins.Sparsha_qrCode,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Plugins.Sprite.Exps.X,
@@ -3918,9 +4154,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.AJAX.Cnds.OnAnyError,
 		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.Json.Acts.SetPath,
 		C3.Plugins.Json.Acts.SetValue,
+		C3.Plugins.System.Exps.random,
 		C3.Plugins.Json.Exps.GetAsCompactString,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Acts.GoToLayoutByName,
@@ -3933,11 +4172,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Plugins.Touch.Cnds.OnTouchEnd,
-		C3.Plugins.AJAX.Acts.RequestFile,
-		C3.Plugins.AJAX.Cnds.OnComplete,
-		C3.Plugins.Text.Cnds.CompareInstanceVar,
-		C3.Plugins.Json.Acts.Parse,
-		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.Json.Cnds.ForEach,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.Sprite.Acts.Spawn,
@@ -3945,20 +4179,33 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.Json.Exps.CurrentKey,
 		C3.Plugins.Text.Acts.SetInstanceVar,
-		C3.Plugins.System.Exps.int,
 		C3.Plugins.System.Acts.AddVar,
+		C3.Plugins.System.Exps.int,
+		C3.Plugins.Text.Acts.TypewriterText,
+		C3.Plugins.Text.Cnds.CompareInstanceVar,
+		C3.Plugins.Text.Acts.SetVisible,
+		C3.Plugins.Sprite.Acts.SetVisible,
+		C3.Plugins.UserMedia.Acts.RequestCamera,
+		C3.Plugins.UserMedia.Cnds.OnApproved,
+		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.UserMedia.Acts.Snapshot,
+		C3.Plugins.UserMedia.Cnds.OnSnapshot,
+		C3.Plugins.Sparsha_qrCode.Acts.ReadQr,
+		C3.Plugins.UserMedia.Exps.SnapshotURL,
+		C3.Plugins.Sparsha_qrCode.Cnds.OnRead,
+		C3.Plugins.Sparsha_qrCode.Exps.data,
+		C3.Plugins.Text.Acts.SetFontColor,
+		C3.Behaviors.Sin.Acts.SetEnabled,
+		C3.Plugins.Sparsha_qrCode.Cnds.OnError,
+		C3.Plugins.UserMedia.Acts.Stop,
 		C3.Plugins.Text.Exps.Text,
+		C3.Plugins.Text.Acts.AppendText,
 		C3.Plugins.Text.Cnds.CompareText,
 		C3.Plugins.System.Cnds.ForEach,
-		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.Browser.Acts.Vibrate,
 		C3.Plugins.Json.Acts.SetObject,
 		C3.Plugins.Json.Acts.SetArray,
-		C3.Plugins.Json.Acts.SetPath,
-		C3.Plugins.Sprite.Exps.AnimationFrame,
-		C3.Plugins.Text.Acts.TypewriterText,
-		C3.Plugins.Text.Acts.SetVisible,
-		C3.Plugins.Sprite.Acts.SetVisible
+		C3.Plugins.Sprite.Exps.AnimationFrame
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4044,12 +4291,32 @@ self.C3_JsPropNameTable = [
 	{Text15: 0},
 	{Text16: 0},
 	{Text17: 0},
+	{UserMedia: 0},
+	{StartDecode: 0},
+	{DecodedText: 0},
+	{Sine: 0},
+	{scanLine: 0},
+	{StopDecode: 0},
+	{QRCode: 0},
+	{Button5: 0},
+	{Sprite15: 0},
+	{SpriteButtonBawah2: 0},
+	{SpriteButtonBawah3: 0},
+	{TextInp: 0},
+	{Text18: 0},
+	{Text19: 0},
+	{Button6: 0},
 	{LINK: 0},
 	{dahLogin: 0},
 	{lastLayout: 0},
+	{totalHarga: 0},
+	{namaWebsite: 0},
+	{TakeSnap: 0},
+	{MasterSwitch: 0},
+	{AllowCapture: 0},
+	{cango: 0},
 	{letakList: 0},
-	{listCount: 0},
-	{totalHarga: 0}
+	{listCount: 0}
 ];
 }
 
@@ -4211,19 +4478,33 @@ self.C3_ExpressionFuncs = [
 		() => "Success Login!",
 		() => 0,
 		() => "Wrong email and password combination :(",
+		() => "data.data",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data");
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		() => "username",
 		() => "phoneNum",
 		() => "email",
+		() => "cusid",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(0, 100);
+		},
+		() => "status",
+		() => "ACTIVE",
+		() => "wallet",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
 			const f2 = p._GetNode(2).GetBoundMethod();
 			const n3 = p._GetNode(3);
 			const n4 = p._GetNode(4);
-			return () => ((((("id=" + f0(n1.ExpObject())) + "&pass=") + f2(n3.ExpObject())) + "&req=register&data=") + n4.ExpObject(""));
+			return () => ((((("id=" + f0(n1.ExpObject())) + "&pass=") + f2(n3.ExpObject())) + "&type=2&req=register&data=") + n4.ExpObject(""));
 		},
 		() => "Password input doesn't same as Confirm Password input!!",
 		() => "Success Register!",
@@ -4236,27 +4517,132 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 70,
 		() => 100,
-		() => 630,
+		() => 230,
+		() => "order",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("namaKedai");
+			return () => n0.ExpObject(".value");
 		},
-		() => "menu",
+		() => "0",
 		() => 360,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(".gambar");
 		},
+		() => 8,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(".nama");
+		},
+		() => 9,
+		() => 10,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => and("* RM", n0.ExpObject(".harga"));
+		},
+		() => 130,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const n3 = p._GetNode(3);
+			return () => (f0(n1.ExpObject(".harga")) * f2(n3.ExpObject(".value")));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("RM ", v0.GetValue());
+		},
+		() => 15,
+		() => -1023,
+		() => "Got data, Stopping camera...",
+		() => "[QR not found]",
+		() => -281474976711679,
+		() => 1.1,
+		() => "Stopping camera...",
+		() => "odabege",
+		() => "ajim",
+		() => 101,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data.username");
+		},
+		() => 103,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data.phoneNum");
+		},
+		() => 104,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data.email");
+		},
+		() => 102,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data.cusid");
+		},
+		() => 105,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data.status");
+		},
+		() => 106,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => and("RM ", n0.ExpObject("data.data.wallet"));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (("Getting data from " + v0.GetValue()) + " ....");
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() + "?req=website&website=ajim");
+		},
+		() => "GET",
+		() => "Processing data...",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ("kedai" + v0.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (("kedai" + v0.GetValue()) + ".data");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject((("kedai" + v1.GetValue()) + ".data"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject((("kedai" + v1.GetValue()) + ".data.namakedai"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject((("kedai" + v1.GetValue()) + ".data.location"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => and(and(n0.ExpObject(".nama"), "\n"), "\n");
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((and((and("RM", n0.ExpObject(".harga")) + " * "), n1.ExpObject(".value")) + "\n") + "\n");
+		},
+		() => 630,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (("kedai" + v0.GetValue()) + ".data.menu");
 		},
 		() => 3,
 		() => 4,
 		() => 5,
 		() => 6,
 		() => 7,
-		() => "0",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
@@ -4266,7 +4652,6 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => and("RM", n0.ExpObject(".harga"));
 		},
-		() => 130,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
@@ -4278,7 +4663,6 @@ self.C3_ExpressionFuncs = [
 			return () => (f0(n1.ExpObject()) - 1);
 		},
 		() => "200,100,200",
-		() => "order",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => and(".", n0.ExpInstVar());
@@ -4298,31 +4682,7 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (and(".", n0.ExpInstVar()) + ".harga");
-		},
-		() => 230,
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject(".value");
-		},
-		() => 8,
-		() => 9,
-		() => 10,
-		p => {
-			const n0 = p._GetNode(0);
-			return () => and("* RM", n0.ExpObject(".harga"));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const f2 = p._GetNode(2).GetBoundMethod();
-			const n3 = p._GetNode(3);
-			return () => (f0(n1.ExpObject(".harga")) * f2(n3.ExpObject(".value")));
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("RM ", v0.GetValue());
-		},
-		() => 15
+		}
 ];
 
 
