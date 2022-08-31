@@ -26,3 +26,12 @@ POST Data:
 Return data :
 	result = <desc result?
 	status = 1 or 0
+
+
+ORDERR
+
+link : https://docs.google.com/spreadsheets/d/1shvNv98jyqnJjwtqhUgfdS9hk8Rkg4LwTO1GJs8ScZg/edit?usp=sharing
+
+Untuk order -->
+req=order & id=??? & data=??? & type=??? & website=???
+REFERENCE : id=nama , data=orderapa , type= KIV lagi , website=namaKedai
