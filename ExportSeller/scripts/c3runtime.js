@@ -3892,13 +3892,13 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Text.Acts.Destroy,
 		C3.Plugins.Json.Cnds.ForEach,
+		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.Json.Exps.CurrentKey,
 		C3.Plugins.Text.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.int,
-		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.Sprite.Acts.SetScale,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Acts.SetBoolVar,
@@ -3986,6 +3986,7 @@ self.C3_JsPropNameTable = [
 	{acceptNo: 0},
 	{acceptYes: 0},
 	{TextInput8: 0},
+	{Text7: 0},
 	{LINK: 0},
 	{namaWebsite: 0},
 	{lastLayout: 0},
@@ -4166,6 +4167,16 @@ self.C3_ExpressionFuncs = [
 		() => 70,
 		() => 46,
 		() => "data.data",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(".value");
+		},
+		() => "0",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(".status");
+		},
+		() => "toaccept",
 		() => 263,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -4173,6 +4184,7 @@ self.C3_ExpressionFuncs = [
 			return () => (410 + (v0.GetValue() * v1.GetValue()));
 		},
 		() => 3,
+		() => 4,
 		() => 542,
 		() => 635,
 		p => {
@@ -4190,16 +4202,34 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpObject(".nama");
 		},
 		p => {
+			const n0 = p._GetNode(0);
+			return () => and("x", n0.ExpObject(".value"));
+		},
+		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => ("req=orderwebsite&website=" + v0.GetValue());
 		},
-		() => "Success Get Data! Receiving...",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and("data.data.", n0.ExpInstVar()) + ".status");
+		},
+		() => "complete",
+		() => "Updating to Server...",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => ((and((("req=orderupdate&website=" + v0.GetValue()) + "&id="), n1.ExpObject("data.id")) + "&data=") + n2.ExpObject("data.data"));
+		},
+		() => "Success! Loading...",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("data.data");
 		},
 		() => 0.3,
-		() => "Error :("
+		() => "Error :(",
+		() => 600,
+		() => "completefood"
 ];
 
 
