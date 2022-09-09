@@ -3870,6 +3870,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json.Acts.SetJSON,
 		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.Json.Cnds.CompareValue,
+		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.AJAX.Cnds.OnAnyError,
 		C3.Plugins.Sprite.Acts.SetX,
@@ -3888,11 +3889,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Touch.Cnds.OnTouchEnd,
 		C3.Plugins.System.Cnds.OnLayoutEnd,
 		C3.Plugins.System.Exps.layoutname,
+		C3.Plugins.TextBox.Acts.SetText,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Text.Acts.Destroy,
+		C3.Plugins.System.Cnds.For,
+		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.Json.Cnds.ForEach,
 		C3.Plugins.Json.Exps.Get,
+		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
@@ -3900,9 +3905,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Text.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.Sprite.Acts.SetScale,
-		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.System.Acts.SetBoolVar,
-		C3.Plugins.System.Acts.RestartLayout
+		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Behaviors.DragnDrop.Acts.SetEnabled
 	];
 };
 self.C3_JsPropNameTable = [
@@ -3984,9 +3989,11 @@ self.C3_JsPropNameTable = [
 	{SpriteButtonBawah2: 0},
 	{Text6: 0},
 	{acceptNo: 0},
+	{orderIDname: 0},
 	{acceptYes: 0},
 	{TextInput8: 0},
 	{Text7: 0},
+	{putihTutup: 0},
 	{LINK: 0},
 	{namaWebsite: 0},
 	{lastLayout: 0},
@@ -3994,7 +4001,10 @@ self.C3_JsPropNameTable = [
 	{itemYgKe: 0},
 	{LINKORDER: 0},
 	{dataGot: 0},
-	{jarakOrder: 0}
+	{jarakOrder: 0},
+	{brpOrder: 0},
+	{dataKe: 0},
+	{dataBetulkan: 0}
 ];
 }
 
@@ -4166,7 +4176,15 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 70,
 		() => 46,
-		() => "data.data",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("");
+		},
+		() => 11,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ("data.data" + v0.GetValue());
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(".value");
@@ -4192,10 +4210,10 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			return () => f0(n1.ExpObject(".gambar"));
 		},
-		() => 0.55,
+		() => 0.8,
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("data.id");
+			return () => n0.ExpObject(".ordername");
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -4211,7 +4229,8 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (and("data.data.", n0.ExpInstVar()) + ".status");
+			const n1 = p._GetNode(1);
+			return () => (and((("data.data" + n0.ExpInstVar()) + "."), n1.ExpInstVar()) + ".status");
 		},
 		() => "complete",
 		() => "Updating to Server...",
@@ -4219,17 +4238,93 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			const n1 = p._GetNode(1);
 			const n2 = p._GetNode(2);
-			return () => ((and((("req=orderupdate&website=" + v0.GetValue()) + "&id="), n1.ExpObject("data.id")) + "&data=") + n2.ExpObject("data.data"));
+			const n3 = p._GetNode(3);
+			const n4 = p._GetNode(4);
+			const n5 = p._GetNode(5);
+			const n6 = p._GetNode(6);
+			const n7 = p._GetNode(7);
+			const n8 = p._GetNode(8);
+			const n9 = p._GetNode(9);
+			const n10 = p._GetNode(10);
+			const n11 = p._GetNode(11);
+			const n12 = p._GetNode(12);
+			const n13 = p._GetNode(13);
+			const n14 = p._GetNode(14);
+			const n15 = p._GetNode(15);
+			const n16 = p._GetNode(16);
+			const n17 = p._GetNode(17);
+			const n18 = p._GetNode(18);
+			const n19 = p._GetNode(19);
+			const n20 = p._GetNode(20);
+			const n21 = p._GetNode(21);
+			const n22 = p._GetNode(22);
+			return () => ((((((((((((((((((((((and((and((and((and((and((and((and((and((and((and((and((("req=orderupdate&website=" + v0.GetValue()) + "&id="), n1.ExpObject("data.id")) + "&id2="), n2.ExpObject("data.id2")) + "&id3="), n3.ExpObject("data.id3")) + "&id4="), n4.ExpObject("data.id4")) + "&id5="), n5.ExpObject("data.id5")) + "&id6="), n6.ExpObject("data.id6")) + "&id7="), n7.ExpObject("data.id7")) + "&id8="), n8.ExpObject("data.id8")) + "&id9="), n9.ExpObject("data.id9")) + "&id10="), n10.ExpObject("data.id10")) + "&id11="), n11.ExpObject("data.id11")) + "&data=") + n12.ExpObject("data.data")) + "&data2=") + n13.ExpObject("data.data2")) + "&data3=") + n14.ExpObject("data.data3")) + "&data4=") + n15.ExpObject("data.data4")) + "&data5=") + n16.ExpObject("data.data5")) + "&data6=") + n17.ExpObject("data.data6")) + "&data7=") + n18.ExpObject("data.data7")) + "&data8=") + n19.ExpObject("data.data8")) + "&data9=") + n20.ExpObject("data.data9")) + "&data10=") + n21.ExpObject("data.data10")) + "&data11=") + n22.ExpObject("data.data11"));
 		},
 		() => "Success! Loading...",
+		() => "data.data",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("data.data");
 		},
+		() => "data.data2",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data2");
+		},
+		() => "data.data3",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data3");
+		},
+		() => "data.data4",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data4");
+		},
+		() => "data.data5",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data5");
+		},
+		() => "data.data6",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data6");
+		},
+		() => "data.data7",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data7");
+		},
+		() => "data.data8",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data8");
+		},
+		() => "data.data9",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data9");
+		},
+		() => "data.data10",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data10");
+		},
+		() => "data.data11",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("data.data11");
+		},
 		() => 0.3,
 		() => "Error :(",
-		() => 600,
-		() => "completefood"
+		() => 305,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ((-(v0.GetValue() * 200)) + 900);
+		},
+		() => "completefood",
+		() => "habis"
 ];
 
 

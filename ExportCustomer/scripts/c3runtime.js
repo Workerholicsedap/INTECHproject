@@ -4791,6 +4791,10 @@ self.C3_ExpressionFuncs = [
 		() => "toaccept",
 		p => {
 			const n0 = p._GetNode(0);
+			return () => (and(".", n0.ExpInstVar()) + ".ordername");
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 300);
 		},
 		p => {
